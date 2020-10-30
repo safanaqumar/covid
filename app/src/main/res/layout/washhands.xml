@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".Washhands"
+    android:orientation="vertical"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:gravity="center"
+    android:background="@color/colorPrimary">
+    <TextView
+        android:fontFamily="@font/montserrat_extrabold"
+        android:id="@+id/dialog_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:layout_marginTop="15sp"
+        android:textSize="18sp"
+        android:padding="5dp"
+        android:textColor="@color/color_white"
+        android:background="@color/colorPrimary"
+        android:text="Awareness Videos for you..."
+        />
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="false">
+<LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_marginBottom="20dp"
+    android:padding="10dp">
+    <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
+        android:id="@+id/youtube"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:videoId="U8r3oTVMtQ0"
+        android:paddingBottom="10dp"
+
+        android:layout_gravity="center_horizontal"
+        app:showYouTubeButton="false"
+        app:autoPlay="false"
+         />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:layout_gravity="center_horizontal"
+        android:textColor="@color/color_white"
+android:paddingBottom="5dp"
+        android:text="Recognizing Day to Day Signs and Symptoms of Coronavirus"></TextView>
+    <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
+        android:id="@+id/youtube1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:videoId="BtN-goy9VOY"
+app:showYouTubeButton="false"
+        app:autoPlay="false"
+        android:paddingBottom="10dp"
+        android:paddingTop="14dp">
+    </com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:layout_gravity="center_vertical"
+
+android:paddingBottom="5dp"
+        android:textColor="@color/color_white"
+        android:text="The Coronavirus Explained and What You should Do"></TextView>
+    <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
+        android:id="@+id/youtube2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:videoId="vWzEao1mXfo"
+        app:autoPlay="false"
+        android:layout_gravity="center_horizontal"
+        app:showYouTubeButton="false"
+        android:paddingBottom="10dp"
+        android:paddingTop="14dp">
+    </com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:layout_gravity="start"
+        android:textColor="@color/color_white"
+        android:paddingBottom="5dp"
+        android:text="How to treat coronavirus at home"></TextView>
+    <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
+        android:id="@+id/youtube3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:videoId="41gUBGCRC2s"
+        app:autoPlay="false"
+        android:layout_gravity="center_horizontal"
+        app:showYouTubeButton="false"
+        android:paddingBottom="10dp"
+        android:paddingTop="14dp">
+    </com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:layout_gravity="center_vertical"
+        android:textColor="@color/color_white"
+        android:paddingBottom="5dp"
+        android:text="18 steps for home care of coronavirus patients"></TextView>
+    <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
+        android:id="@+id/youtube4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:videoId="YZnnnGheZJU"
+        app:showYouTubeButton="false"
+        app:autoPlay="false"
+        android:paddingBottom="10dp"
+        android:paddingTop="14dp"
+        android:layout_gravity="center_horizontal">
+    </com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:textColor="@color/color_white"
+        android:layout_gravity="center_vertical"
+        android:paddingBottom="5dp"
+        android:text="Home care for suspected and mild cases of COVID-19"></TextView>
+</LinearLayout>
+</ScrollView>
+</LinearLayout>
