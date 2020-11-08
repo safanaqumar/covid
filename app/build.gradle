@@ -5,8 +5,9 @@ android {
     buildToolsVersion "29.0.2"
     defaultConfig {
         applicationId "com.example.covid"
-        minSdkVersion 17
+        minSdkVersion 19
         targetSdkVersion 29
+        multiDexEnabled true
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -19,12 +20,7 @@ android {
         }
      }
     }
-/*    compileOptions {
-        targetCompatibility JavaVersion.VERSION_1_8
-        sourceCompatibility JavaVersion.VERSION_1_8
-    }*/
 }
-
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'androidx.appcompat:appcompat:1.0.2'
@@ -48,13 +44,13 @@ dependencies {
     implementation 'com.leo.simplearcloader:simplearcloader:1.0.+'
     implementation 'com.pierfrancescosoffritti.androidyoutubeplayer:core:10.0.5'
     implementation 'com.google.android.gms:play-services-ads:19.4.0'
-    //  implementation 'com.google.android.gms:play-services-ads:19.4.0'
-    /* implementation  'com.google.android.exoplayer:exoplayer-core:2.8.3'
-    implementation 'com.google.android.exoplayer:exoplayer-dash:2.8.2'
-    implementation 'com.google.android.exoplayer:exoplayer-ui:2.8.2'
-    implementation 'com.google.android.exoplayer:exoplayer:2.9.6'
-    // Glide
-    implementation 'com.github.bumptech.glide:glide:4.11.0'
-  annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'*/
-    //  implimentation 'com.google.android.exoplayer:exoplayer-smoothstreaming:2.9.1'
+    implementation 'com.google.android.gms:play-services-maps:17.0.0'
+    implementation 'com.google.android.libraries.places:places:2.2.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.3.0'
+    implementation 'com.squareup.retrofit2:retrofit:2.3.0'
+    implementation 'com.squareup.retrofit2:converter-scalars:2.1.0'
+    implementation 'androidx.multidex:multidex:2.0.0'
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.12.1'
+
 }
+//apply plugin: 'com.google.gms.google-services'

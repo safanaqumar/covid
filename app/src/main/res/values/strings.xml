@@ -15,4 +15,7 @@
     <string name="menu_tools">Tools</string>
     <string name="menu_share">Share</string>
     <string name="menu_send">Send</string>
+    <string name="GOOGLE_APIKEY">AIzaSyDqbSn5jUjh2l9_GohsZY5LaoELBQdAFyk</string>
+    <string name="google_places_key_for_web">AIzaSyBfUyIWc68-MAblnFVMA_IBZmWKJn49mCM</string>
+
 </resources>

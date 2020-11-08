@@ -40,37 +40,38 @@ import tr.xip.errorview.ErrorView;
 import static android.widget.Toast.LENGTH_SHORT;
 
 public class Dashboard extends Fragment {
-View view;
-TextView textView;
-ErrorView errorView;
-String server_url = "https://disease.sh/v3/covid-19/all";
-String pak_url = "https://api.apify.com/v2/key-value-stores/QhfG8Kj6tVYMgud6R/records/LATEST?disableRedirect=true";
-    TextView dialog_title1,tvCases1,tvRecovered1,tvActive1,tvTotalDeaths1,tvpakCases1,tvpakActive1,tvpakRecovered1,tvpakTotalDeaths1;
+    View view;
+    TextView textView;
+    ErrorView errorView;
+    String server_url = "https://disease.sh/v3/covid-19/all";
+    String pak_url = "https://api.apify.com/v2/key-value-stores/QhfG8Kj6tVYMgud6R/records/LATEST?disableRedirect=true";
+    TextView dialog_title1, tvCases1, tvRecovered1, tvActive1, tvTotalDeaths1, tvpakCases1, tvpakActive1, tvpakRecovered1, tvpakTotalDeaths1;
 
 
-    PieChart pieChart,pieChart1;
-private static final String TAG = Dashboard.class.getSimpleName();
+    PieChart pieChart, pieChart1;
+    private static final String TAG = Dashboard.class.getSimpleName();
+
     public Dashboard() {
     }
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-       view = inflater.inflate(R.layout.dashboard,container,false);
-       dialog_title1 = view.findViewById(R.id.dialog_title1);
-       tvpakRecovered1 = view.findViewById(R.id.tvpakRecovered1);
-       tvpakActive1 = view.findViewById(R.id.tvpakActive1);
-       tvpakCases1 = view.findViewById(R.id.tvpakCases1);
-       tvpakTotalDeaths1 = view.findViewById(R.id.tvpakTotalDeaths1);
+        view = inflater.inflate(R.layout.dashboard, container, false);
+        dialog_title1 = view.findViewById(R.id.dialog_title1);
+        tvpakRecovered1 = view.findViewById(R.id.tvpakRecovered1);
+        tvpakActive1 = view.findViewById(R.id.tvpakActive1);
+        tvpakCases1 = view.findViewById(R.id.tvpakCases1);
+        tvpakTotalDeaths1 = view.findViewById(R.id.tvpakTotalDeaths1);
         pieChart = view.findViewById(R.id.piechart);
         pieChart1 = view.findViewById(R.id.piechart1);
-errorView = view.findViewById(R.id.specialErrorView);
-tvActive1=view.findViewById(R.id.tvActive1);
-tvCases1=view.findViewById(R.id.tvCases1);
-tvRecovered1=view.findViewById(R.id.tvRecovered1);
-tvTotalDeaths1=view.findViewById(R.id.tvTotalDeaths1);
+        errorView = view.findViewById(R.id.specialErrorView);
+        tvActive1 = view.findViewById(R.id.tvActive1);
+        tvCases1 = view.findViewById(R.id.tvCases1);
+        tvRecovered1 = view.findViewById(R.id.tvRecovered1);
+        tvTotalDeaths1 = view.findViewById(R.id.tvTotalDeaths1);
 
-       // MobileAds.initialize(getActivity().getApplicationContext(),"ca-app-pub-3940256099942544/6300978111");
+        // MobileAds.initialize(getActivity().getApplicationContext(),"ca-app-pub-3940256099942544/6300978111");
        /* AdView maddview = (AdView) view.findViewById(R.id.adView3);
         AdRequest adRequest = new AdRequest.Builder().build();
         maddview.loadAd(adRequest);
@@ -107,42 +108,42 @@ tvTotalDeaths1=view.findViewById(R.id.tvTotalDeaths1);
         requestQueue.add(stringRequest);
 
 
-    StringRequest stringRequest1 = new StringRequest(Request.Method.GET, pak_url,
-            new Response.Listener<String>() {
-                @Override
-                public void onResponse(String response) {
-                    try {
+        StringRequest stringRequest1 = new StringRequest(Request.Method.GET, pak_url,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        try {
 
-                        JSONObject jsonObject1 = new JSONObject(response.toString());
+                            JSONObject jsonObject1 = new JSONObject(response.toString());
 
-                        tvpakActive1.setText(jsonObject1.getString("tested"));
-                        tvpakCases1.setText(jsonObject1.getString("infected"));
-                        tvpakRecovered1.setText(jsonObject1.getString("recovered"));
-                        tvpakTotalDeaths1.setText(jsonObject1.getString("deceased"));
-                        pieChart1.addPieSlice(new PieModel("Infected", Integer.parseInt(tvpakCases1.getText().toString()), Color.parseColor("#FFA726")));
-                        pieChart1.addPieSlice(new PieModel("Recovered", Integer.parseInt(tvpakRecovered1.getText().toString()), Color.parseColor("#66BB6A")));
-                        pieChart1.addPieSlice(new PieModel("Deceased", Integer.parseInt(tvpakTotalDeaths1.getText().toString()), Color.parseColor("#EF5350")));
-                        pieChart1.addPieSlice(new PieModel("Tested", Integer.parseInt(tvpakActive1.getText().toString()), Color.parseColor("#29B6F6")));
-                        pieChart1.startAnimation();
+                            tvpakActive1.setText(jsonObject1.getString("tested"));
+                            tvpakCases1.setText(jsonObject1.getString("infected"));
+                            tvpakRecovered1.setText(jsonObject1.getString("recovered"));
+                            tvpakTotalDeaths1.setText(jsonObject1.getString("deceased"));
+                            pieChart1.addPieSlice(new PieModel("Infected", Integer.parseInt(tvpakCases1.getText().toString()), Color.parseColor("#FFA726")));
+                            pieChart1.addPieSlice(new PieModel("Recovered", Integer.parseInt(tvpakRecovered1.getText().toString()), Color.parseColor("#66BB6A")));
+                            pieChart1.addPieSlice(new PieModel("Deceased", Integer.parseInt(tvpakTotalDeaths1.getText().toString()), Color.parseColor("#EF5350")));
+                            pieChart1.addPieSlice(new PieModel("Tested", Integer.parseInt(tvpakActive1.getText().toString()), Color.parseColor("#29B6F6")));
+                            pieChart1.startAnimation();
 
-                    } catch (JSONException e) {
-                        e.printStackTrace();
+                        } catch (JSONException e) {
+                            e.printStackTrace();
 
+                        }
                     }
-                }
-            }, new Response.ErrorListener() {
-        @Override
-        public void onErrorResponse(VolleyError error) {
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
 
-            errorView.setVisibility(View.VISIBLE);
+                errorView.setVisibility(View.VISIBLE);
 
 //Toast.makeText(getActivity().getApplicationContext(),error.getMessage(), LENGTH_SHORT).show();
-        }
-    });
-    RequestQueue requestQueue1 = Volley.newRequestQueue(getActivity().getApplicationContext());
+            }
+        });
+        RequestQueue requestQueue1 = Volley.newRequestQueue(getActivity().getApplicationContext());
         requestQueue1.add(stringRequest1);
         return view;
-}
+    }
 
 
 }

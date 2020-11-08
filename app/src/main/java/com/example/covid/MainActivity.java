@@ -29,6 +29,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
+import com.example.covid.ui.DonationFormActivity;
+import com.example.covid.ui.DonorRequestActivity;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
@@ -41,22 +43,23 @@ import java.util.Calendar;
 import static androidx.core.view.GravityCompat.*;
 
 public class MainActivity extends AppCompatActivity {
-private TabLayout tabLayout ;
-private Toolbar toolbar;
-private AppBarLayout appBarLayout;
-private DrawerLayout drawerLayout;
-private ViewPager viewPager;
-EditText ed;
-private ToggleButton button;
-EndDrawerToggle endDrawerToggle;
-String mPrefKey = "toggle";
-private SharedPreferences mSharedPref;
-//private ActionBarDrawerToggle actionBarDrawerToggle;
-  private AppCompatImageButton tooglebutton;
+    private TabLayout tabLayout;
+    private Toolbar toolbar;
+    private AppBarLayout appBarLayout;
+    private DrawerLayout drawerLayout;
+    private ViewPager viewPager;
+    EditText ed;
+    private ToggleButton button;
+    EndDrawerToggle endDrawerToggle;
+    String mPrefKey = "toggle";
+    private SharedPreferences mSharedPref;
+    //private ActionBarDrawerToggle actionBarDrawerToggle;
+    private AppCompatImageButton tooglebutton;
     private String openDrawerContentDesc;
     private DrawerArrowDrawable arrowDrawable;
     private String closeDrawerContentDesc;
-public static AdView maddview;
+    public static AdView maddview;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -71,13 +74,13 @@ public static AdView maddview;
         ViewPagerAdaptor adaptor = new ViewPagerAdaptor(getSupportFragmentManager());
 
         //Adding fragments
-        adaptor.Addfragment(new Dashboard(),"Dashboard");
-        adaptor.Addfragment(new Videos(),"Precautions");
+        adaptor.Addfragment(new Dashboard(), "Dashboard");
+        adaptor.Addfragment(new Videos(), "Precautions");
         adaptor.Addfragment(new Washhands(), "Awareness Videos");
-        adaptor.Addfragment(new Newsandupdates(),"News and Updates");
+        adaptor.Addfragment(new Newsandupdates(), "News and Updates");
         button = (ToggleButton) findViewById(R.id.butoonalaram);
         mSharedPref = getPreferences(Context.MODE_PRIVATE);
-      //  ed = (EditText)findViewById(R.id.ed);
+        //  ed = (EditText)findViewById(R.id.ed);
         //adaptor setup
         viewPager.setAdapter(adaptor);
         tabLayout.setupWithViewPager(viewPager);
@@ -89,7 +92,7 @@ public static AdView maddview;
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                boolean on =((ToggleButton)v).isChecked();
+                boolean on = ((ToggleButton) v).isChecked();
 
                 if (on) {
                     AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
@@ -97,19 +100,18 @@ public static AdView maddview;
                     Intent notificationIntent = new Intent(MainActivity.this, AlarmReceiver.class);
                     PendingIntent broadcast = PendingIntent.getBroadcast(MainActivity.this, 100, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
 
-                    Toast.makeText(getApplicationContext(),"Reminder is on",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Reminder is on", Toast.LENGTH_SHORT).show();
                     Calendar cal = Calendar.getInstance();
                     cal.add(Calendar.MINUTE, 2);
-                    alarmManager.setInexactRepeating(AlarmManager.RTC_WAKEUP,cal.getTimeInMillis(),AlarmManager.INTERVAL_DAY,broadcast
-);
+                    alarmManager.setInexactRepeating(AlarmManager.RTC_WAKEUP, cal.getTimeInMillis(), AlarmManager.INTERVAL_DAY, broadcast
+                    );
 
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
                         alarmManager.setExact(AlarmManager.RTC_WAKEUP, cal.getTimeInMillis(), broadcast);
                     }
 
-                }
-                else {
-                    Toast.makeText(getApplicationContext(),"Reminder is off",Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(getApplicationContext(), "Reminder is off", Toast.LENGTH_SHORT).show();
                 }
 
             }
@@ -117,14 +119,12 @@ public static AdView maddview;
     }
 
 
-
-
     @Override
     protected void onResume() {
         super.onResume();
 
         // if the activty resumes set the toggle state
-        boolean enabled = mSharedPref.getBoolean(mPrefKey,true); // if no value found then set it off, in this case this can happen first
+        boolean enabled = mSharedPref.getBoolean(mPrefKey, true); // if no value found then set it off, in this case this can happen first
         button.setChecked(enabled);
     }
 
@@ -133,16 +133,17 @@ public static AdView maddview;
         super.onPause();
         // if the activty closed etc.....
         SharedPreferences.Editor editor = mSharedPref.edit(); // get the pref editor
-        editor.putBoolean(mPrefKey,button.isChecked()); // assign value to the key
+        editor.putBoolean(mPrefKey, button.isChecked()); // assign value to the key
         editor.commit();  // save the editors modifications
     }
-    private void setuptoolbar(){
+
+    private void setuptoolbar() {
         final DrawerLayout drawerLayout = findViewById(R.id.drawer_layout);
         toolbar = (Toolbar) findViewById(R.id.toolbars);
-setSupportActionBar(toolbar);
+        setSupportActionBar(toolbar);
 
 
- endDrawerToggle = new EndDrawerToggle(this,drawerLayout,toolbar,R.string.navigation_drawer_open,R.string.navigation_drawer_close);
+        endDrawerToggle = new EndDrawerToggle(this, drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawerLayout.addDrawerListener(endDrawerToggle);
         drawerLayout.addDrawerListener(endDrawerToggle);
         endDrawerToggle.syncState();
@@ -150,4 +151,13 @@ setSupportActionBar(toolbar);
 
     }
 
+    public void onClicked(View view) {
+        Intent i = new Intent(this, DonationFormActivity.class);
+        startActivity(i);
+    }
+
+    public void onSeeDonor(View view) {
+        Intent i = new Intent(this, DonorRequestActivity.class);
+        startActivity(i);
+    }
 }
