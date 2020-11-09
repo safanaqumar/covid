@@ -1,4 +1,4 @@
-package com.example.covid.ui;
+package com.example.covid.ui.user;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -42,7 +42,7 @@ public class DonationFormActivity extends AppCompatActivity {
     }
 
     public void onDonationRequestClicked(View view) {
-        Intent i = new Intent(this, MyDonationRequestActivity.class);
+        Intent i = new Intent(this, MyApplicationHistoryActivity.class);
         startActivity(i);
     }
 

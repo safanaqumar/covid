@@ -1,5 +1,4 @@
 apply plugin: 'com.android.application'
-
 android {
     compileSdkVersion 29
     buildToolsVersion "29.0.2"
@@ -16,7 +15,6 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-
         }
      }
     }
@@ -35,8 +33,9 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     //implementation 'com.github.DevHossamHassan:ErrorView:v0.0.2'
     implementation 'tr.xip.errorview:library:4.0.0'
+    implementation 'com.google.android.gms:play-services-auth:16.0.0'
     androidTestImplementation 'androidx.test.ext:junit:1.1.0'
-
+    implementation 'com.google.firebase:firebase-auth:17.0.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
     implementation 'com.google.android.material:material:1.0.0'
     implementation 'com.github.blackfizz:eazegraph:1.2.5l@aar'
@@ -53,4 +52,4 @@ dependencies {
     implementation 'com.squareup.okhttp3:logging-interceptor:3.12.1'
 
 }
-//apply plugin: 'com.google.gms.google-services'
+

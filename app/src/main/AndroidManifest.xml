@@ -25,10 +25,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.DonorRequestActivity"></activity>
+        <activity android:name=".ui.donor.ConfirmApplicationsActivity"></activity>
+        <activity android:name=".ui.donor.ApplicantDetailsActivity" />
+        <activity android:name=".ui.donor.DonationApplicationsActivity" />
+        <activity android:name=".ui.user.DonorRequestActivity" />
         <activity android:name=".map.SelectLocationOnMapActivity" />
-        <activity android:name=".ui.MyDonationRequestActivity" />
-        <activity android:name=".ui.DonationFormActivity" />
+        <activity android:name=".ui.user.MyApplicationHistoryActivity" />
+        <activity android:name=".ui.user.DonationFormActivity" />
 
         <uses-library android:name="com.google.android.maps" />
         <!--
