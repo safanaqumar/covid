@@ -19,6 +19,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
+import com.example.covid.ui.donor.DonationApplicationsActivity;
 import com.example.covid.ui.user.DonationFormActivity;
 import com.example.covid.ui.user.DonorRequestActivity;
 import com.google.android.gms.ads.AdView;
@@ -144,6 +145,11 @@ public class MainActivity extends AppCompatActivity {
 
     public void onSeeDonor(View view) {
         Intent i = new Intent(this, DonorRequestActivity.class);
+        startActivity(i);
+    }
+
+    public void onViewClicked(View view) {
+        Intent i = new Intent(this, DonationApplicationsActivity.class);
         startActivity(i);
     }
 }

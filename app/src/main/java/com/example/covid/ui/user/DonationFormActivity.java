@@ -10,6 +10,7 @@ import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
 import com.example.covid.R;
 import com.example.covid.map.SelectLocationOnMapActivity;
@@ -26,6 +27,8 @@ public class DonationFormActivity extends AppCompatActivity {
     }
 
     public void onSubmitClicked(View view) {
+        finish();
+        Toast.makeText(this, "You successfully submit the request", Toast.LENGTH_SHORT).show();
     }
 
     public void onLocationButtonClicked(View view) {
