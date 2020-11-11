@@ -15,7 +15,9 @@ import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
@@ -46,6 +48,8 @@ public class MainActivity extends AppCompatActivity {
     private DrawerArrowDrawable arrowDrawable;
     private String closeDrawerContentDesc;
     public static AdView maddview;
+    public Button signup_button;
+    ImageView imageView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,6 +60,17 @@ public class MainActivity extends AppCompatActivity {
         tabLayout = (TabLayout) findViewById(R.id.tablayou);
         appBarLayout = (AppBarLayout) findViewById(R.id.appbar);
         viewPager = (ViewPager) findViewById(R.id.viewpage);
+        imageView=findViewById(R.id.menu_logo);
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), SignupActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
+
 
 
         ViewPagerAdaptor adaptor = new ViewPagerAdaptor(getSupportFragmentManager());
@@ -103,6 +118,8 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
+
     }
 
 
@@ -152,4 +169,5 @@ public class MainActivity extends AppCompatActivity {
         Intent i = new Intent(this, DonationApplicationsActivity.class);
         startActivity(i);
     }
+
 }

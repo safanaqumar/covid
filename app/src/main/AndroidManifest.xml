@@ -25,7 +25,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.donor.ConfirmApplicationsActivity"></activity>
+        <activity android:name=".SignInActivity"></activity>
+        <activity android:name=".SignupActivity" />
+        <activity android:name=".ui.donor.ConfirmApplicationsActivity" />
         <activity android:name=".ui.donor.ApplicantDetailsActivity" />
         <activity android:name=".ui.donor.DonationApplicationsActivity" />
         <activity android:name=".ui.user.DonorRequestActivity" />
