@@ -44,6 +44,7 @@ public class Videos extends Fragment {
                 Intent intent=new Intent(getContext(),PlayPrecautionActivity.class);
                 intent.putExtra("type","sKF4Tm3Nm7I");
                 intent.putExtra("title", "How to wear a mask properly | Covid-19");
+                intent.putExtra("article", "https://www.hopkinsmedicine.org/health/conditions-and-diseases/coronavirus/proper-mask-wearing-coronavirus-prevention-infographic");
                 startActivity(intent);
             }
         });

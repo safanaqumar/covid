@@ -44,11 +44,13 @@ public class PlayPrecautionActivity extends AppCompatActivity {
                 if (url == null || url.startsWith("http://") || url.startsWith("https://") || url.startsWith("https://www.messenger.com"))
                     return false;
                 if (url.startsWith("intent")) {
+                    Intent article =getIntent();
+                   final String articles=  article.getStringExtra("article");
                     ///  Intent sendIntent = new Intent();
                     //  sendIntent.setAction(Intent.ACTION_VIEW);
                     // sendIntent.setPackage("com.facebook.orca");
                     // sendIntent.setData(Uri.parse("https://m.me/"+"unameit.pk"));
-                    Intent sendIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.hopkinsmedicine.org/health/conditions-and-diseases/coronavirus/proper-mask-wearing-coronavirus-prevention-infographic"));
+                    Intent sendIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(articles));
 
                     if (sendIntent.resolveActivity(getPackageManager()) != null) {
 
@@ -71,9 +73,11 @@ public class PlayPrecautionActivity extends AppCompatActivity {
 
             }
         });
+        Intent article =getIntent();
+        final String articles=  article.getStringExtra("article");
         mywebView.setWebChromeClient(new WebChromeClient());
 
-        mywebView.loadUrl("https://www.hopkinsmedicine.org/health/conditions-and-diseases/coronavirus/proper-mask-wearing-coronavirus-prevention-infographic");
+        mywebView.loadUrl(articles);
         WebSettings webSettings = mywebView.getSettings();
         webSettings.setJavaScriptEnabled(true);
         String USER_AGENT = "Mozilla/5.0 (Linux; Android 4.1.1; Galaxy Nexus Build/JRO03C) AppleWebKit/535.19 (KHTML, like Gecko) Chrome/18.0.1025.166 Mobile Safari/535.19";
