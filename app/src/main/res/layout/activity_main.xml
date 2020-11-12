@@ -17,14 +17,35 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbars"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/colorPrimary"
-            app:titleTextColor="@color/color_white">
+            android:layout_height="wrap_content">
 
-        </androidx.appcompat.widget.Toolbar>
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbars"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorPrimary"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:titleTextColor="@color/color_white">
+
+            </androidx.appcompat.widget.Toolbar>
+
+            <TextView
+                android:id="@+id/login_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="50dp"
+                android:text="LOGIN"
+                android:textColor="@color/color_white"
+                app:layout_constraintBottom_toBottomOf="@+id/toolbars"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/toolbars" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <com.google.android.material.appbar.AppBarLayout
             android:id="@+id/appbar"
@@ -35,70 +56,88 @@
             <ImageView
                 android:id="@+id/menu_logo"
                 android:layout_width="wrap_content"
-                android:layout_gravity="center"
                 android:layout_height="100dp"
+                android:layout_gravity="center"
                 android:src="@drawable/coronavirus" />
 
             <TextView
                 android:id="@+id/welcome"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/menu_logo"
+                android:layout_gravity="center"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginRight="10dp"
-                android:layout_marginBottom="10dp"
                 android:fontFamily="@font/montserrat_regular"
                 android:gravity="center"
                 android:text="@string/welcome"
                 android:textAlignment="center"
                 android:textColor="@android:color/holo_green_light"
                 android:textSize="12sp" />
-            <LinearLayout
+
+            <TextView
+                android:id="@+id/welcome2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
+                android:layout_below="@id/menu_logo"
+                android:layout_gravity="center"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="1dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"
+                android:fontFamily="@font/montserrat_regular"
                 android:gravity="center"
-                >
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btnDonation"
-                android:layout_gravity="center"
-                android:text="I want Donation"
-                android:padding="10dp"
-                android:textColor="#fff"
-                android:textSize="12sp"
-                android:onClick="onClicked"
-                android:layout_margin="10dp"
-                android:background="@drawable/my_button_bg"
+                android:text="@string/help"
+                android:textAlignment="center"
+                android:textColor="@android:color/holo_green_light"
+                android:textSize="12sp" />
+
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                />
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btnDonator"
-                android:textSize="12sp"
                 android:layout_gravity="center"
-                android:text="See your Donor"
-                android:padding="10dp"
-                android:layout_margin="10dp"
-                android:textColor="#fff"
-                android:onClick="onSeeDonor"
-                android:background="@drawable/my_button_bg"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                />
+                android:layout_marginBottom="10dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnDonation"
+                    android:layout_width="100dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    android:layout_marginEnd="4dp"
+                    android:background="@drawable/border_dashed"
+                    android:onClick="onClicked"
+                    android:padding="10dp"
+                    android:text="I want Donation"
+                    android:textColor="#fff"
+                    android:textSize="8sp" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnDonator"
+                    android:layout_width="100dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    android:layout_marginEnd="4dp"
+                    android:background="@drawable/border_dashed"
+                    android:onClick="onSeeDonor"
+                    android:padding="10dp"
+                    android:text="See your Donor"
+                    android:textColor="#fff"
+                    android:textSize="8sp" />
+
                 <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/btnApplications"
-                    android:textSize="12sp"
+                    android:layout_width="100dp"
+                    android:layout_height="30dp"
                     android:layout_gravity="center"
-                    android:text="View\nApplications"
-                    android:padding="10dp"
-                    android:layout_margin="10dp"
-                    android:textColor="#fff"
+                    android:background="@drawable/border_dashed"
                     android:onClick="onViewClicked"
-                    android:background="@drawable/my_button_bg"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    />
+                    android:padding="10dp"
+                    android:text="View Applications"
+                    android:textColor="#fff"
+                    android:textSize="8sp" />
             </LinearLayout>
 
         </com.google.android.material.appbar.AppBarLayout>

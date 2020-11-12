@@ -14,10 +14,12 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
@@ -50,6 +52,7 @@ public class MainActivity extends AppCompatActivity {
     public static AdView maddview;
     public Button signup_button;
     ImageView imageView;
+    private TextView login;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,7 +64,8 @@ public class MainActivity extends AppCompatActivity {
         appBarLayout = (AppBarLayout) findViewById(R.id.appbar);
         viewPager = (ViewPager) findViewById(R.id.viewpage);
         imageView=findViewById(R.id.menu_logo);
-        imageView.setOnClickListener(new View.OnClickListener() {
+         login=  findViewById(R.id.login_button);
+        login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), SignupActivity.class);
