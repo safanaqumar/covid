@@ -11,5 +11,6 @@
     <color name="recovered">#66BB6A</color>
     <color name="deaths">#EF5350</color>
     <color name="active">#29B6F6</color>
+    <color name="virus">#569111</color>
 
 </resources>

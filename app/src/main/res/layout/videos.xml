@@ -15,9 +15,9 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center|center_vertical"
             android:layout_marginLeft="8dp"
-            android:layout_marginTop="60dp"
+            android:layout_marginTop="110dp"
             android:layout_marginRight="8dp"
-            android:layout_marginBottom="20dp"
+            android:layout_marginBottom="50dp"
             android:layout_weight="2"
             android:alignmentMode="alignMargins"
             android:columnCount="2"
@@ -76,6 +76,7 @@
                         android:orientation="horizontal">
 
                         <Button
+                            android:id="@+id/mask"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginRight="4dp"
@@ -145,7 +146,7 @@
                         android:orientation="horizontal">
 
                         <Button
-                            android:id="@+id/button3"
+                            android:id="@+id/mouth"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginRight="4dp"
@@ -212,7 +213,7 @@
                         android:orientation="horizontal">
 
                         <Button
-                            android:id="@+id/button3"
+                            android:id="@+id/distance"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginRight="4dp"
@@ -279,7 +280,7 @@
                         android:orientation="horizontal">
 
                         <Button
-                            android:id="@+id/button3"
+                            android:id="@+id/hands"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginRight="4dp"
@@ -297,7 +298,7 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/cvshoes"
+
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
@@ -346,7 +347,7 @@
                         android:orientation="horizontal">
 
                         <Button
-                            android:id="@+id/button3"
+                            android:id="@+id/sanitizer"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginRight="4dp"
@@ -414,7 +415,7 @@
                         android:orientation="horizontal">
 
                         <Button
-                            android:id="@+id/button3"
+                            android:id="@+id/stayhome"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginRight="4dp"

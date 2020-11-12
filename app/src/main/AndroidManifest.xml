@@ -27,6 +27,7 @@
         android:theme="@style/AppTheme">
         <activity android:name=".SignInActivity"></activity>
         <activity android:name=".SignupActivity" />
+        <activity android:name=".PlayPrecautionActivity" />
         <activity android:name=".ui.donor.ConfirmApplicationsActivity" />
         <activity android:name=".ui.donor.ApplicantDetailsActivity" />
         <activity android:name=".ui.donor.DonationApplicationsActivity" />
@@ -34,7 +35,8 @@
         <activity android:name=".map.SelectLocationOnMapActivity" />
         <activity android:name=".ui.user.MyApplicationHistoryActivity" />
         <activity android:name=".ui.user.DonationFormActivity" />
-        <activity android:name=".PlayPrecautionActivity"/>
+
+
         <uses-library android:name="com.google.android.maps" />
         <!--
      <meta-data

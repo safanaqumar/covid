@@ -35,6 +35,11 @@ public class SignInActivity extends AppCompatActivity {
 
         UserDatabaseReference = FirebaseDatabase.getInstance().getReference("users");
         firebaseAuth = FirebaseAuth.getInstance();
+        if (firebaseAuth.getCurrentUser() != null){
+          //  startActivity(new Intent(SignInActivity.this,MainActivity.class));
+           // finish();
+            Toast.makeText(getApplicationContext(), "user already logged in ", Toast.LENGTH_LONG).show();
+        }
 
 
         inputuserid = (EditText) findViewById(R.id.loginemail);

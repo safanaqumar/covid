@@ -23,7 +23,7 @@
     <string-array name="positions">
 
         <item>Donor</item>
-        <item>User</item>
+        <item>Recipient</item>
 
 
     </string-array>

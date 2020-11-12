@@ -19,6 +19,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -29,13 +30,21 @@ public class SignupActivity extends AppCompatActivity {
     public Spinner spinner_position;
     public EditText email, password , confirm_password;
     DatabaseReference UserDatabaseReference;
-    TextView login;
+    @Override
+    public void onStart() {
+        super.onStart();
+        // Check if user is signed in (non-null) and update UI accordingly.
+        FirebaseUser currentUser = firebaseAuth.getCurrentUser();
+        Toast.makeText(getApplicationContext(), "user already logged in ", Toast.LENGTH_LONG).show();
+
+    }
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         firebaseAuth = FirebaseAuth.getInstance();
+
 
         setContentView(R.layout.activity_signup);
         email=(EditText) findViewById(R.id.regEmail);
@@ -44,14 +53,8 @@ public class SignupActivity extends AppCompatActivity {
         spinner_position= (Spinner) findViewById(R.id.regposition);
         progressBar=findViewById(R.id.loadingbar);
         registerbtn = (Button) findViewById(R.id.registerbtn);
-        login =findViewById(R.id.login_tv);
-        login.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(getApplicationContext(), SignInActivity.class);
-                startActivity(i);
-            }
-        });
+
+
         ArrayAdapter<String> spinadapter = new ArrayAdapter<>(SignupActivity.this,android.R.layout.simple_list_item_1,getResources().getStringArray(R.array.positions));
         spinadapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner_position.setAdapter(spinadapter);
@@ -83,12 +86,14 @@ public class SignupActivity extends AppCompatActivity {
                     password.setError("Password should be of minimum 6 characters long");
                 }
                 if (USERPASS.equals(USERCONPASS)) {
+                    progressBar.setVisibility(View.VISIBLE);
 
                     firebaseAuth.createUserWithEmailAndPassword(USEREMAIL, USERPASS)
                             .addOnCompleteListener(SignupActivity.this, new OnCompleteListener<AuthResult>() {
                                 @Override
                                 public void onComplete(@NonNull Task<AuthResult> task) {
                                     if (task.isSuccessful()) {
+
                                         User user = new User(
 
                                                 USERPASS,
@@ -106,13 +111,16 @@ public class SignupActivity extends AppCompatActivity {
                                                 .setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
                                             @Override
                                             public void onComplete(@NonNull Task<Void> task) {
+                                                progressBar.setVisibility(View.INVISIBLE);
                                                 Toast.makeText(SignupActivity.this, "registration complete", Toast.LENGTH_SHORT).show();
-                                                //  startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                                                startActivity(new Intent(getApplicationContext(), MainActivity.class));
+
 
                                             }
                                         });
                                     } else {
                                         // If sign in fails, display a message to the user.
+                                        progressBar.setVisibility(View.GONE);
                                         Toast.makeText(SignupActivity.this, "registration failed email already exists", Toast.LENGTH_SHORT).show();
 
                                     }
