@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
     public static AdView maddview;
     public Button signup_button;
     ImageView imageView;
-    private TextView login;
+    public TextView login;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
