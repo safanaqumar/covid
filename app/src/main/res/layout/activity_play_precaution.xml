@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimaryDark"
+    android:background="#000000"
     tools:context=".PlayPrecautionActivity">
 
     <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
@@ -17,62 +17,33 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:showYouTubeButton="false" />
+        app:showYouTubeButton="false">
 
-    <com.airbnb.lottie.LottieAnimationView
-        android:id="@+id/av1"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@id/av3"
-        app:layout_constraintEnd_toStartOf="@id/lAV"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/youtube"
-        app:lottie_autoPlay="true"
-        app:lottie_loop="true"
-        app:lottie_speed="0.5"
-        android:background="#E0FFBE"
-        app:lottie_url="https://assets2.lottiefiles.com/packages/lf20_rvqq1X.json" />
+    </com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView>
 
-    <com.airbnb.lottie.LottieAnimationView
-        android:id="@+id/lAV"
+    <TextView
+        android:id="@+id/title_video"
         android:layout_width="0dp"
-        android:background="#E0FFBE"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@id/av4"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="#000000"
+        android:padding="10dp"
+        android:text="TextView"
+        android:textColor="#ffffff"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/webview"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/av1"
-        app:layout_constraintTop_toBottomOf="@+id/youtube"
-        app:lottie_autoPlay="true"
-        app:lottie_loop="true"
-        app:lottie_speed="0.5"
-        app:lottie_url="https://assets2.lottiefiles.com/packages/lf20_cbkdyqfh.json" />
-
-    <com.airbnb.lottie.LottieAnimationView
-        android:id="@+id/av3"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/av4"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/av1"
-        app:lottie_autoPlay="true"
-        app:lottie_loop="true"
-        app:lottie_speed="0.5"
-        android:background="#E0FFBE"
-        app:lottie_url="https://assets2.lottiefiles.com/packages/lf20_qbinji66.json" />
+        app:layout_constraintTop_toBottomOf="@+id/youtube" />
 
-    <com.airbnb.lottie.LottieAnimationView
-        android:id="@+id/av4"
+    <WebView
+        android:id="@+id/webview"
         android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:background="#E0FFBE"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/av3"
-        app:layout_constraintTop_toBottomOf="@+id/lAV"
-        app:lottie_autoPlay="true"
-        app:lottie_loop="true"
-        app:lottie_speed="0.5"
-        app:lottie_url="https://assets2.lottiefiles.com/private_files/lf30_tCHKkP.json" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title_video" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

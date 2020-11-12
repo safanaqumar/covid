@@ -6,6 +6,7 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.LinearLayout;
 
 import androidx.annotation.NonNull;
@@ -14,7 +15,9 @@ import androidx.fragment.app.Fragment;
 
 public class Videos extends Fragment {
     View view;
-    LinearLayout mask,mouth,distance,hand,senitizer,stayHome;
+    //LinearLayout mask,mouth,distance,hand,senitizer,stayHome;
+    Button mask, mouth , distance, hand, senitizer, stayhome;
+
     public Videos(){}
 
     @Nullable
@@ -28,17 +31,19 @@ public class Videos extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        mask=view.findViewById(R.id.llMask);
-        mouth=view.findViewById(R.id.llMouth);
-        distance=view.findViewById(R.id.llDistance);
-        hand=view.findViewById(R.id.llCleanHands);
-        senitizer=view.findViewById(R.id.llSenitizer);
-        stayHome=view.findViewById(R.id.llStayHome);
+        mask=view.findViewById(R.id.mask);
+        mouth=view.findViewById(R.id.mouth);
+        distance=view.findViewById(R.id.distance);
+        hand=view.findViewById(R.id.hands);
+
+        senitizer=view.findViewById(R.id.sanitizer);
+        stayhome=view.findViewById(R.id.stayhome);
         mask.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent=new Intent(getContext(),PlayPrecautionActivity.class);
                 intent.putExtra("type","sKF4Tm3Nm7I");
+                intent.putExtra("title", "How to wear a mask properly | Covid-19");
                 startActivity(intent);
             }
         });
@@ -47,6 +52,7 @@ public class Videos extends Fragment {
             public void onClick(View view) {
                 Intent intent=new Intent(getContext(),PlayPrecautionActivity.class);
                 intent.putExtra("type","JwbwvppBGZU");
+                intent.putExtra("title", "Stop the spread | Don't touch the mouth | Covid-19");
                 startActivity(intent);
             }
         });
@@ -54,6 +60,7 @@ public class Videos extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent intent=new Intent(getContext(),PlayPrecautionActivity.class);
+                intent.putExtra("title", "CoronaVirus Social Distancing | Covid-19");
                 intent.putExtra("type","2WCtGFNENYU");
                 startActivity(intent);
             }
@@ -62,6 +69,7 @@ public class Videos extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent intent=new Intent(getContext(),PlayPrecautionActivity.class);
+                intent.putExtra("title", "How to wash hands | Covid-19");
                 intent.putExtra("type","3PmVJQUCm4E");
                 startActivity(intent);
             }
@@ -70,14 +78,16 @@ public class Videos extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent intent=new Intent(getContext(),PlayPrecautionActivity.class);
+                intent.putExtra("title", "How to use hand sanitizer | Covid-19");
                 intent.putExtra("type","4xC-_7ZiQoY");
                 startActivity(intent);
             }
         });
-        stayHome.setOnClickListener(new View.OnClickListener() {
+        stayhome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent=new Intent(getContext(),PlayPrecautionActivity.class);
+                intent.putExtra("title", "Stay at home | Covid-19");
                 intent.putExtra("type","1EFRW8dZ7_c");
                 startActivity(intent);
             }
