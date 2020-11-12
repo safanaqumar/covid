@@ -8,6 +8,15 @@ public class DonationFormModel {
     String description;
     String purpose;
     String cnic;
+    String date;
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
 
     public String getFullName() {
         return fullName;

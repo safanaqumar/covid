@@ -1,316 +1,327 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#fff"
-    android:focusableInTouchMode="true"
-    android:padding="10dp"
-    tools:context=".ui.user.DonationFormActivity">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <Button
-        android:id="@+id/btnRequest"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:background="@drawable/my_button_bg"
-        android:onClick="onDonationRequestClicked"
-        android:padding="15dp"
-        android:text="Check History Requests"
-        android:textColor="#fff"
-        android:textSize="12sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/bViewMedicines"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintVertical_chainStyle="packed" />
+    <data>
 
-    <TextView
-        android:id="@+id/tvGeneralInformation"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="10dp"
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#fff"
+        android:focusableInTouchMode="true"
         android:padding="10dp"
-        android:text="Donation Form"
-        android:textColor="@color/colorPrimaryDark"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@id/viewLine"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        tools:context=".ui.user.DonationFormActivity">
 
-    <View
-        android:id="@+id/viewLine"
-        android:layout_width="0dp"
-        android:layout_height="0.1dp"
-        android:background="#938C8C"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvGeneralInformation"></View>
+        <Button
+            android:id="@+id/btnRequest"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/my_button_bg"
+            android:onClick="onDonationRequestClicked"
+            android:padding="15dp"
+            android:text="Check History Requests"
+            android:textColor="#fff"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/bViewMedicines"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintVertical_chainStyle="packed" />
 
-    <ScrollView
-        android:id="@+id/scrollView3"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:fillViewport="true"
-        android:paddingBottom="14dp"
-        android:scrollbars="none"
-        app:layout_constraintBottom_toTopOf="@+id/bViewMedicines"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/viewLine"
-        app:layout_constraintVertical_bias="1.0">
+        <TextView
+            android:id="@+id/tvGeneralInformation"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:padding="10dp"
+            android:text="Donation Form"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toTopOf="@id/viewLine"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_margin="10dp">
+        <View
+            android:id="@+id/viewLine"
+            android:layout_width="0dp"
+            android:layout_height="0.1dp"
+            android:background="#938C8C"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvGeneralInformation"></View>
 
-            <com.airbnb.lottie.LottieAnimationView
-                android:id="@+id/iv_auto_image_slider"
-                android:layout_width="0dp"
-                android:layout_height="140dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:lottie_autoPlay="true"
-                app:lottie_loop="true"
-                app:lottie_speed="0.5"
-                app:lottie_url="https://assets1.lottiefiles.com/packages/lf20_KQ2I57.json" />
+        <ScrollView
+            android:id="@+id/scrollView3"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:fillViewport="true"
+            android:paddingBottom="14dp"
+            android:scrollbars="none"
+            app:layout_constraintBottom_toTopOf="@+id/bViewMedicines"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/viewLine"
+            app:layout_constraintVertical_bias="1.0">
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/tilName"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:textColorHint="@color/colorPrimaryDark"
-                app:boxStrokeColor="@color/colorPrimaryDark"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp">
 
-                <EditText
-                    android:id="@+id/etName"
-                    android:layout_width="match_parent"
+                <com.airbnb.lottie.LottieAnimationView
+                    android:id="@+id/iv_auto_image_slider"
+                    android:layout_width="0dp"
+                    android:layout_height="140dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:lottie_autoPlay="true"
+                    app:lottie_loop="true"
+                    app:lottie_speed="0.5"
+                    app:lottie_url="https://assets1.lottiefiles.com/packages/lf20_KQ2I57.json" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilName"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:background="@null"
-                    android:hint="Full Name"
-                    android:paddingLeft="10dp"
-                    android:textColor="@android:color/black"
                     android:textColorHint="@color/colorPrimaryDark"
-                    android:textSize="14sp" />
+                    app:boxStrokeColor="@color/colorPrimaryDark"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
 
-            </com.google.android.material.textfield.TextInputLayout>
+                    <EditText
+                        android:id="@+id/etName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@null"
+                        android:hint="Full Name"
+                        android:paddingLeft="10dp"
+                        android:textColor="@android:color/black"
+                        android:textColorHint="@color/colorPrimaryDark"
+                        android:textSize="14sp" />
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/startTime_layout"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:layout_marginRight="5dp"
-                android:textColorHint="@color/colorPrimaryDark"
-                app:boxStrokeColor="@color/colorPrimaryDark"
-                app:layout_constraintEnd_toStartOf="@+id/endTime_layout"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tilName">
+                </com.google.android.material.textfield.TextInputLayout>
 
-                <EditText
-                    android:id="@+id/etAmount"
-                    android:layout_width="match_parent"
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/startTime_layout"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:background="@null"
-                    android:hint="Amount Needed"
-                    android:inputType="number"
-                    android:paddingLeft="10dp"
-                    android:textColor="@android:color/black"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="5dp"
                     android:textColorHint="@color/colorPrimaryDark"
-                    android:textSize="14sp" />
+                    app:boxStrokeColor="@color/colorPrimaryDark"
+                    app:layout_constraintEnd_toStartOf="@+id/endTime_layout"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tilName">
 
-            </com.google.android.material.textfield.TextInputLayout>
+                    <EditText
+                        android:id="@+id/etAmount"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@null"
+                        android:hint="Amount Needed"
+                        android:inputType="number"
+                        android:paddingLeft="10dp"
+                        android:textColor="@android:color/black"
+                        android:textColorHint="@color/colorPrimaryDark"
+                        android:textSize="14sp" />
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/endTime_layout"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:textColorHint="@color/colorPrimaryDark"
-                app:boxStrokeColor="@color/colorPrimaryDark"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/startTime_layout"
-                app:layout_constraintTop_toTopOf="@+id/startTime_layout">
+                </com.google.android.material.textfield.TextInputLayout>
 
-                <EditText
-                    android:id="@+id/etContact"
-                    android:layout_width="match_parent"
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/endTime_layout"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:background="@null"
-                    android:hint="Contact"
-                    android:inputType="number"
-                    android:paddingLeft="10dp"
-                    android:textColor="@android:color/black"
+                    android:layout_marginLeft="5dp"
                     android:textColorHint="@color/colorPrimaryDark"
-                    android:textSize="14sp" />
+                    app:boxStrokeColor="@color/colorPrimaryDark"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/startTime_layout"
+                    app:layout_constraintTop_toTopOf="@+id/startTime_layout">
 
-            </com.google.android.material.textfield.TextInputLayout>
+                    <EditText
+                        android:id="@+id/etContact"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@null"
+                        android:hint="Contact (Optional)"
+                        android:inputType="number"
+                        android:paddingLeft="10dp"
+                        android:textColor="@android:color/black"
+                        android:textColorHint="@color/colorPrimaryDark"
+                        android:textSize="14sp" />
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/address_layout"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:textColorHint="@color/colorPrimaryDark"
-                app:boxStrokeColor="@color/colorPrimaryDark"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/endTime_layout">
+                </com.google.android.material.textfield.TextInputLayout>
 
-                <EditText
-                    android:id="@+id/address"
-                    android:layout_width="match_parent"
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/address_layout"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:background="@null"
-                    android:hint="Address"
-                    android:paddingLeft="10dp"
-                    android:textColor="@android:color/black"
+                    android:layout_marginTop="10dp"
                     android:textColorHint="@color/colorPrimaryDark"
-                    android:textSize="14sp" />
+                    app:boxStrokeColor="@color/colorPrimaryDark"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/endTime_layout">
 
-            </com.google.android.material.textfield.TextInputLayout>
+                    <EditText
+                        android:id="@+id/address"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@null"
+                        android:hint="Address (Optional)"
+                        android:paddingLeft="10dp"
+                        android:textColor="@android:color/black"
+                        android:textColorHint="@color/colorPrimaryDark"
+                        android:textSize="14sp" />
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/personLL_layout"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:textColorHint="@color/colorPrimaryDark"
-                app:boxStrokeColor="@color/colorPrimaryDark"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/address_layout">
+                </com.google.android.material.textfield.TextInputLayout>
 
-                <EditText
-                    android:id="@+id/personLL"
-                    android:layout_width="match_parent"
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/personLL_layout"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:background="@null"
-                    android:hint="Description"
-                    android:paddingLeft="10dp"
-                    android:text=""
-                    android:textColor="@android:color/black"
+                    android:layout_marginTop="10dp"
                     android:textColorHint="@color/colorPrimaryDark"
-                    android:textSize="14sp" />
+                    app:boxStrokeColor="@color/colorPrimaryDark"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/address_layout">
 
-            </com.google.android.material.textfield.TextInputLayout>
+                    <EditText
+                        android:id="@+id/personLL"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@null"
+                        android:hint="Description"
+                        android:paddingLeft="10dp"
+                        android:text=""
+                        android:textColor="@android:color/black"
+                        android:textColorHint="@color/colorPrimaryDark"
+                        android:textSize="14sp" />
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/designation_layout"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:textColorHint="@color/colorPrimaryDark"
-                app:boxStrokeColor="@color/colorPrimaryDark"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/personLL_layout">
+                </com.google.android.material.textfield.TextInputLayout>
 
-                <EditText
-                    android:id="@+id/purpose"
-                    android:layout_width="match_parent"
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/designation_layout"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:background="@null"
-                    android:hint="Purpose"
-                    android:paddingLeft="10dp"
-                    android:textColor="@android:color/black"
+                    android:layout_marginTop="10dp"
                     android:textColorHint="@color/colorPrimaryDark"
-                    android:textSize="14sp" />
+                    app:boxStrokeColor="@color/colorPrimaryDark"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/personLL_layout">
 
-            </com.google.android.material.textfield.TextInputLayout>
+                    <EditText
+                        android:id="@+id/purpose"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@null"
+                        android:hint="Purpose"
+                        android:paddingLeft="10dp"
+                        android:textColor="@android:color/black"
+                        android:textColorHint="@color/colorPrimaryDark"
+                        android:textSize="14sp" />
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/certificateNO_layout"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:textColorHint="@color/colorPrimaryDark"
-                app:boxStrokeColor="@color/colorPrimaryDark"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/designation_layout">
+                </com.google.android.material.textfield.TextInputLayout>
 
-                <EditText
-                    android:id="@+id/cnc"
-                    android:layout_width="match_parent"
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/certificateNO_layout"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:background="@null"
-                    android:hint="Cnic no"
-                    android:inputType="number"
-                    android:paddingLeft="10dp"
-                    android:textColor="@android:color/black"
+                    android:layout_marginTop="10dp"
                     android:textColorHint="@color/colorPrimaryDark"
-                    android:textSize="14sp" />
+                    app:boxStrokeColor="@color/colorPrimaryDark"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/designation_layout">
 
-            </com.google.android.material.textfield.TextInputLayout>
+                    <EditText
+                        android:id="@+id/cnc"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@null"
+                        android:hint="Cnic no (Optional)"
+                        android:inputType="number"
+                        android:paddingLeft="10dp"
+                        android:textColor="@android:color/black"
+                        android:textColorHint="@color/colorPrimaryDark"
+                        android:textSize="14sp" />
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/tvLoc"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="Select pin location"
-                android:textColorHint="@color/colorPrimaryDark"
-                app:boxStrokeColor="@color/colorPrimaryDark"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/certificateNO_layout" />
+                </com.google.android.material.textfield.TextInputLayout>
 
-            <ImageView
-                android:id="@+id/ivLocation"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:background="?attr/selectableItemBackgroundBorderless"
-                android:clickable="true"
-                android:onClick="onLocationButtonClicked"
-                android:padding="0dp"
-                android:src="@drawable/map_icon"
-                app:layout_constraintBottom_toBottomOf="@+id/tvLoc"
-                app:layout_constraintStart_toEndOf="@+id/tvLoc"
-                app:layout_constraintTop_toTopOf="@+id/tvLoc" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvLoc"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:textSize="12sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:textColor="@color/quantum_googred"
+                    android:text="You can skip to enter your contact details and address yet it will show directly to your donor after your confirmation."
+                    android:textColorHint="@color/colorPrimaryDark"
+                    app:boxStrokeColor="@color/colorPrimaryDark"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/certificateNO_layout" />
 
-    </ScrollView>
+                <ImageView
+                    android:id="@+id/ivLocation"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:clickable="true"
+                    android:onClick="onLocationButtonClicked"
+                    android:padding="0dp"
+                    android:visibility="gone"
+                    android:src="@drawable/map_icon"
+                    app:layout_constraintBottom_toBottomOf="@+id/tvLoc"
+                    app:layout_constraintStart_toEndOf="@+id/tvLoc"
+                    app:layout_constraintTop_toTopOf="@+id/tvLoc" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <Button
-        android:id="@+id/bViewMedicines"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-        android:background="@drawable/my_button_bg"
-        android:onClick="onSubmitClicked"
-        android:padding="15dp"
-        android:text="Submit Application"
-        android:textColor="#fff"
-        android:textSize="12sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/btnRequest"
-        app:layout_constraintVertical_chainStyle="packed" />
+        </ScrollView>
+
+        <Button
+            android:id="@+id/bViewMedicines"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/my_button_bg"
+            android:onClick="onSubmitClicked"
+            android:padding="15dp"
+            android:text="Submit Application"
+            android:textColor="#fff"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/btnRequest"
+            app:layout_constraintVertical_chainStyle="packed" />
 
 
-    <ProgressBar
-        android:id="@+id/progressBar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"></ProgressBar>
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"></ProgressBar>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

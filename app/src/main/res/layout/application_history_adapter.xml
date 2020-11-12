@@ -1,118 +1,118 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/CVClick"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_margin="10dp"
-    android:layout_marginBottom="0.5dp"
-    android:background="#FFF"
-    android:clickable="true"
-    android:focusable="true"
-    android:foreground="?android:attr/selectableItemBackground"
-    android:orientation="vertical"
-    app:cardCornerRadius="20dp">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <LinearLayout
+    <data>
+
+        <variable
+            name="model"
+            type="com.example.covid.model.DonationFormModel" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/CVClick"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="14dp"
+        android:layout_marginBottom="0.5dp"
+        android:background="#FFF"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?android:attr/selectableItemBackground"
         android:orientation="vertical"
-        android:padding="20dp">
+        app:cardCornerRadius="20dp">
 
-        <TextView
-            android:id="@+id/tvAssignment"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginBottom="11dp"
-            android:gravity="center"
-            android:text="Application # 0453"
-            android:textColor="@color/colorPrimary"
-            android:textSize="23sp" />
-
-
-        <TextView
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="2dp"
-            android:text="Full name: Tariq Ali"
-            android:textColor="@color/colorPrimary"
-            android:textSize="14sp" />
+            android:orientation="vertical"
+            android:padding="20dp">
 
-        <TextView
-            android:id="@+id/tvAssignmentName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            android:text="Amount needed : 5000"
-            android:textColor="#666060"
-            android:textSize="14sp" />
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvFullName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="@{`Full name : `+model.fullName}"
+                android:textColor="@color/colorPrimary"
+                android:textSize="14sp" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="2dp"
-            android:text="Contact: 0300-3721891"
-            android:textColor="@color/colorPrimary"
-            android:textSize="14sp" />
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvAssignmentName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="@{`Amount needed : `+model.amountNeeded}"
+                android:textColor="@color/colorPrimary"
+                android:textSize="14sp" />
 
-        <TextView
-            android:id="@+id/tvTotalMarks"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            android:text="Address: R-23 block-16 gulshan karachi,pakistan"
-            android:textColor="#666060"
-            android:textSize="14sp" />
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="@{`Contact : `+model.contact +`, Cnic: `+model.cnic}"
+                android:textColor="@color/colorPrimary"
+                android:textSize="14sp" />
 
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="2dp"
-            android:text="Description"
-            android:textStyle="bold"
-            android:textColor="@color/colorPrimary"
-            android:textSize="20sp" />
-
-        <TextView
-            android:id="@+id/tvDueDate"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            android:text="Due to covid i need help to pay bills and shop grocery kindly help me with amount of 5000"
-            android:textColor="#666060"
-            android:textSize="14sp" />
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvAddress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="@{`Residential Address :\n`+model.address}"
+                android:textColor="@color/colorPrimary"
+                android:textSize="14sp" />
 
 
-        <TextView
-            android:id="@+id/tvAttachment"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="2dp"
-            android:layout_marginTop="8dp"
-            android:gravity="start"
-            android:layout_marginBottom="8dp"
-            android:text="Your Cnic verification and contact will provide after confirmation"
-            android:textColor="@color/quantum_orange"
-            android:textSize="14sp" />
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="2dp"
+                android:text="Description"
+                android:textColor="@color/colorPrimary"
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="2dp"
-            android:text="Description:"
-            android:visibility="gone"
-            android:textColor="@color/colorPrimary"
-            android:textSize="14sp" />
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvDueDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="@{``+model.description}"
+                android:textColor="#666060"
+                android:textSize="14sp" />
 
-        <TextView
-            android:id="@+id/tvAssignmentDesc"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            android:visibility="gone"
-            android:textColor="#666060"
-            android:textSize="14sp" />
-    </LinearLayout>
-</androidx.cardview.widget.CardView>
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvpurpose"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="@{`Purpose: \n`+model.purpose}"
+                android:textColor="#666060"
+                android:textSize="14sp" />
+
+
+            <TextView
+                android:id="@+id/tvAttachment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="2dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="8dp"
+                android:gravity="start"
+                android:text="Your Cnic verification and contact will provide after confirmation"
+                android:textColor="@color/quantum_orange"
+                android:textSize="14sp" />
+
+
+            <TextView
+                android:id="@+id/tvAssignmentDesc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:textColor="#666060"
+                android:textSize="14sp"
+                android:visibility="gone" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</layout>

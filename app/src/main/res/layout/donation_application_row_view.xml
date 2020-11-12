@@ -1,138 +1,168 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/CVClick"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_margin="10dp"
-    android:layout_marginBottom="0.5dp"
-    android:background="#FFF"
-    android:clickable="true"
-    android:focusable="true"
-    android:foreground="?android:attr/selectableItemBackground"
-    android:orientation="vertical"
-    app:cardCornerRadius="20dp">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <LinearLayout
+    <data>
+
+        <variable
+            name="model"
+            type="com.example.covid.model.DonationFormModel" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/CVClick"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:layout_marginBottom="0.5dp"
+        android:background="#FFF"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?android:attr/selectableItemBackground"
         android:orientation="vertical"
-        android:padding="20dp">
+        app:cardCornerRadius="20dp">
 
-        <TextView
-            android:id="@+id/tvAssignment"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginBottom="11dp"
-            android:gravity="center"
-            android:text="Application # 0453"
-            android:textColor="@color/colorPrimary"
-            android:textSize="23sp" />
-
-
-        <TextView
-            android:id="@+id/tvDoctorSpecialization"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="2dp"
-            android:text="Full name: Tariq Ali"
-            android:textColor="@color/colorPrimary"
-            android:textSize="14sp" />
+            android:orientation="vertical"
+            android:padding="20dp">
 
-        <TextView
-            android:id="@+id/tvAssignmentName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            android:text="Amount needed : 5000"
-            android:textColor="#666060"
-            android:textSize="14sp" />
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvNo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:gravity="center"
+                android:text="1"
+                android:background="@drawable/ic_circle"
+                android:textColor="#fff"
+                android:textSize="12sp" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="2dp"
-            android:text="Contact: 0300-3721891"
-            android:textColor="@color/colorPrimary"
-            android:textSize="14sp" />
-
-        <TextView
-            android:id="@+id/tvTotalMarks"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            android:text="Address: R-23 block-16 gulshan karachi,pakistan"
-            android:textColor="#666060"
-            android:textSize="14sp" />
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvtitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="11dp"
+                android:gravity="center"
+                android:text="Application # 0453"
+                android:textColor="@color/colorPrimary"
+                android:textSize="23sp" />
 
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="2dp"
-            android:text="Description"
-            android:textColor="@color/colorPrimary"
-            android:textSize="20sp"
-            android:textStyle="bold" />
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvFullName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:text="@{`Full name : `+model.fullName}"
+                android:textColor="@color/colorPrimary"
+                android:textSize="14sp" />
 
-        <TextView
-            android:id="@+id/tvDueDate"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            android:text="Due to covid i need help to pay bills and shop grocery kindly help me with amount of 5000"
-            android:textColor="#666060"
-            android:textSize="14sp" />
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvAssignmentName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:text="@{`Amount needed : `+model.amountNeeded}"
+                android:textColor="@color/colorPrimary"
+                android:textSize="14sp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:text="@{`Contact : `+model.contact +`, Cnic: `+model.cnic}"
+                android:textColor="@color/colorPrimary"
+                android:textSize="14sp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvAddress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:text="@{`Residential Address :\n`+model.address}"
+                android:textColor="@color/colorPrimary"
+                android:textSize="14sp" />
 
 
-        <TextView
-            android:id="@+id/tvAttachment"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="2dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp"
-            android:gravity="center"
-            android:text="Cnic verification and further details will provide you after confirmation"
-            android:textColor="@color/colorPrimaryDark"
-            android:textSize="14sp" />
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="2dp"
+                android:text="Description"
+                android:textColor="@color/colorPrimary"
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="2dp"
-            android:text="Description:"
-            android:textColor="@color/colorPrimary"
-            android:textSize="14sp"
-            android:visibility="gone" />
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvDueDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:text="@{``+model.description}"
+                android:textColor="#666060"
+                android:textSize="14sp" />
 
-        <TextView
-            android:id="@+id/tvAssignmentDesc"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            android:textColor="#666060"
-            android:textSize="14sp"
-            android:visibility="gone" />
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvpurpose"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:text="@{`Purpose: \n`+model.purpose}"
+                android:textColor="#666060"
+                android:textSize="14sp" />
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btnDonate"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColor="#fff"
-            android:layout_margin="10dp"
-            android:background="@drawable/button_bg"
-            android:text="Donate" />
-        <com.airbnb.lottie.LottieAnimationView
-            android:id="@+id/iv_auto_image_slider"
-            android:layout_width="50dp"
-            android:background="#fff"
-            android:layout_gravity="end"
-            app:lottie_url="https://assets3.lottiefiles.com/temp/lf20_BQ2orT.json"
-            android:layout_height="50dp"
-            app:lottie_autoPlay="true"
-            app:lottie_loop="true"
-            app:lottie_speed="0.5" />
-    </LinearLayout>
-</androidx.cardview.widget.CardView>
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvAttachment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="2dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:gravity="center"
+                android:text="Cnic verification and further contact details will provide you after confirmation"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="14sp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="2dp"
+                android:text="Description:"
+                android:textColor="@color/colorPrimary"
+                android:textSize="14sp"
+                android:visibility="gone" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvAssignmentDesc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:textColor="#666060"
+                android:textSize="14sp"
+                android:visibility="gone" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnDonate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/button_bg"
+                android:text="Donate"
+                android:textColor="#fff" />
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/iv_auto_image_slider"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="end"
+                android:background="#fff"
+                app:lottie_autoPlay="true"
+                app:lottie_loop="true"
+                app:lottie_speed="0.5"
+                app:lottie_url="https://assets3.lottiefiles.com/temp/lf20_BQ2orT.json" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</layout>

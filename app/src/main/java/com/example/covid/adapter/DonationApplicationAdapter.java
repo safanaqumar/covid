@@ -12,19 +12,22 @@ import android.widget.Toast;
 
 import com.example.covid.MainActivity;
 import com.example.covid.R;
+import com.example.covid.databinding.DonationApplicationRowViewBinding;
+import com.example.covid.model.DonationFormModel;
 
 import java.util.ArrayList;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.AppCompatButton;
+import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class DonationApplicationAdapter extends RecyclerView.Adapter<DonationApplicationAdapter.ViewHolder> {
     Context c;
     LayoutInflater inflater;
-    ArrayList<String> list;
+    ArrayList<DonationFormModel> list;
 
-    public DonationApplicationAdapter(Context c, ArrayList<String> list) {
+    public DonationApplicationAdapter(Context c, ArrayList<DonationFormModel> list) {
         this.c = c;
         this.list = list;
     }
@@ -32,17 +35,18 @@ public class DonationApplicationAdapter extends RecyclerView.Adapter<DonationApp
     @NonNull
     @Override
     public DonationApplicationAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        inflater = LayoutInflater.from(c);
-        View view = inflater.inflate(R.layout.donation_application_row_view, parent, false);
-        DonationApplicationAdapter.ViewHolder holder = new DonationApplicationAdapter.ViewHolder(view);
-        return holder;
+        LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
+        DonationApplicationRowViewBinding mBinding = DataBindingUtil.inflate(layoutInflater, R.layout.donation_application_row_view, parent, false);
+        c = parent.getContext();
+        return new DonationApplicationAdapter.ViewHolder(mBinding);
     }
 
     @Override
     public void onBindViewHolder(@NonNull DonationApplicationAdapter.ViewHolder holder, int position) {
-        holder.tvDoctorSpecialization.setText(list.get(position));
-        holder.tvAssignment.setText("Application #04" + (position + 31));
-        holder.button.setOnClickListener(new View.OnClickListener() {
+        holder.mBinding.setModel(list.get(position));
+        holder.mBinding.tvNo.setText(""+(position+1));
+        holder.mBinding.tvtitle.setText("Application # 019" + (position + 1)+"\nPosted on: "+list.get(position).getDate());
+        holder.mBinding.btnDonate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 AlertDialog.Builder builder1 = new AlertDialog.Builder(c);
@@ -81,15 +85,11 @@ public class DonationApplicationAdapter extends RecyclerView.Adapter<DonationApp
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        TextView tvDoctorSpecialization;
-        TextView tvAssignment;
-        AppCompatButton button;
+        DonationApplicationRowViewBinding mBinding;
 
-        public ViewHolder(@NonNull View itemView) {
-            super(itemView);
-            tvDoctorSpecialization = itemView.findViewById(R.id.tvDoctorSpecialization);
-            tvAssignment = itemView.findViewById(R.id.tvAssignment);
-            button = itemView.findViewById(R.id.btnDonate);
+        public ViewHolder(@NonNull DonationApplicationRowViewBinding itemView) {
+            super(itemView.getRoot());
+            this.mBinding = itemView;
         }
     }
 }
