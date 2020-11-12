@@ -3,36 +3,35 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/prec"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_gravity="center"
+    android:layout_height="match_parent"
     android:orientation="vertical">
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        >
+        android:layout_height="wrap_content">
 
         <GridLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="25dp"
-            android:layout_marginBottom="25dp"
+            android:layout_gravity="center|center_vertical"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="60dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginBottom="20dp"
             android:layout_weight="2"
             android:alignmentMode="alignMargins"
             android:columnCount="2"
             android:columnOrderPreserved="false"
             android:fitsSystemWindows="true"
-            android:padding="14dp"
             android:rowCount="3">
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/cvschoolourse"
                 android:layout_width="0dp"
-                android:layout_height="150dp"
+                android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
-                android:layout_marginTop="26dp"
                 android:layout_marginLeft="16dp"
+                android:layout_marginTop="26dp"
                 android:layout_marginRight="16dp"
                 android:layout_marginBottom="16dp"
                 android:foreground="?android:attr/selectableItemBackground"
@@ -41,8 +40,8 @@
 
                 <LinearLayout
                     android:id="@+id/llMask"
-                    android:layout_width="wrap_content"
-                    android:layout_height="130dp"
+                    android:layout_width="170dp"
+                    android:layout_height="150dp"
                     android:layout_gravity="center_horizontal"
                     android:layout_margin="16dp"
                     android:background="?selectableItemBackgroundBorderless"
@@ -60,23 +59,49 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
+                        android:layout_marginStart="16dp"
                         android:layout_marginTop="4dp"
-                        android:layout_marginBottom="4dp"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginBottom="2dp"
                         android:text="Wear a mask"
                         android:textAlignment="center"
-                        android:textColor="#4ee44e"
+                        android:textColor="#000000"
                         android:textSize="12dp" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="right"
+                        android:gravity="right"
+                        android:orientation="horizontal">
+
+                        <Button
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="4dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/pink_button"
+                            android:drawableRight="@drawable/ic_baseline_arrow_forward_ios_24"
+                            android:drawablePadding="8dp"
+                            android:drawableTint="@color/color_white"
+                            android:padding="6dp"
+                            android:text="View full article"
+                            android:textColor="@color/color_white"
+                            android:textSize="8sp" />
+                    </LinearLayout>
+
+
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/cvstationary"
                 android:layout_width="0dp"
-                android:layout_height="150dp"
+                android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
                 android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
                 android:layout_marginTop="26dp"
+                android:layout_marginRight="16dp"
                 android:layout_marginBottom="16dp"
                 android:foreground="?android:attr/selectableItemBackground"
                 app:cardCornerRadius="8dp"
@@ -84,8 +109,8 @@
 
                 <LinearLayout
                     android:id="@+id/llMouth"
-                    android:layout_width="wrap_content"
-                    android:layout_height="130dp"
+                    android:layout_width="170dp"
+                    android:layout_height="150dp"
                     android:layout_gravity="center_horizontal"
                     android:layout_margin="16dp"
                     android:background="?selectableItemBackgroundBorderless"
@@ -103,19 +128,44 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
+                        android:layout_marginStart="16dp"
                         android:layout_marginTop="4dp"
-                        android:layout_marginBottom="4dp"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginBottom="2dp"
                         android:text="Don't touch your mouth"
                         android:textAlignment="center"
-                        android:textColor="#4ee44e"
+                        android:textColor="#000000"
                         android:textSize="12dp" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="right"
+                        android:gravity="right"
+                        android:orientation="horizontal">
+
+                        <Button
+                            android:id="@+id/button3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="4dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/pink_button"
+                            android:drawableRight="@drawable/ic_baseline_arrow_forward_ios_24"
+                            android:drawablePadding="8dp"
+                            android:drawableTint="@color/color_white"
+                            android:padding="6dp"
+                            android:text="View full article"
+                            android:textColor="@color/color_white"
+                            android:textSize="8sp" />
+                    </LinearLayout>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/cvuniform"
                 android:layout_width="0dp"
-                android:layout_height="150dp"
+                android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
@@ -126,8 +176,8 @@
 
                 <LinearLayout
                     android:id="@+id/llDistance"
-                    android:layout_width="wrap_content"
-                    android:layout_height="130dp"
+                    android:layout_width="170dp"
+                    android:layout_height="150dp"
                     android:layout_gravity="center_horizontal"
                     android:layout_margin="16dp"
                     android:background="?selectableItemBackgroundBorderless"
@@ -144,19 +194,45 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="16dp"
                         android:layout_marginTop="4dp"
-                        android:layout_marginBottom="4dp"
-                        android:text="Maintain safe distance"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginBottom="2dp"
+                        android:text="Maintain distance"
                         android:textAlignment="center"
-                        android:textColor="#4ee44e"
+                        android:textColor="#000000"
                         android:textSize="12dp" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="right"
+                        android:gravity="right"
+                        android:orientation="horizontal">
+
+                        <Button
+                            android:id="@+id/button3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="4dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/pink_button"
+                            android:drawableRight="@drawable/ic_baseline_arrow_forward_ios_24"
+                            android:drawablePadding="8dp"
+                            android:drawableTint="@color/color_white"
+                            android:padding="6dp"
+                            android:text="View full article"
+                            android:textColor="@color/color_white"
+                            android:textSize="8sp" />
+                    </LinearLayout>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/cvgadgets"
                 android:layout_width="0dp"
-                android:layout_height="150dp"
+                android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
@@ -167,13 +243,13 @@
 
                 <LinearLayout
                     android:id="@+id/llCleanHands"
-                    android:layout_width="wrap_content"
-                    android:layout_height="130dp"
+                    android:layout_width="170dp"
+                    android:layout_height="150dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="16dp"
                     android:background="?selectableItemBackgroundBorderless"
                     android:clickable="true"
                     android:focusable="true"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_margin="16dp"
                     android:orientation="vertical">
 
                     <ImageView
@@ -186,19 +262,44 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
+                        android:layout_marginStart="16dp"
                         android:layout_marginTop="4dp"
-                        android:layout_marginBottom="4dp"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginBottom="2dp"
                         android:text="Clean your hands"
                         android:textAlignment="center"
-                        android:textColor="#4ee44e"
+                        android:textColor="#000000"
                         android:textSize="12dp" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="right"
+                        android:gravity="right"
+                        android:orientation="horizontal">
+
+                        <Button
+                            android:id="@+id/button3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="4dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/pink_button"
+                            android:drawableRight="@drawable/ic_baseline_arrow_forward_ios_24"
+                            android:drawablePadding="8dp"
+                            android:drawableTint="@color/color_white"
+                            android:padding="6dp"
+                            android:text="View full article"
+                            android:textColor="@color/color_white"
+                            android:textSize="8sp" />
+                    </LinearLayout>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/cvshoes"
                 android:layout_width="0dp"
-                android:layout_height="150dp"
+                android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
@@ -209,8 +310,8 @@
 
                 <LinearLayout
                     android:id="@+id/llSenitizer"
-                    android:layout_width="wrap_content"
-                    android:layout_height="130dp"
+                    android:layout_width="170dp"
+                    android:layout_height="150dp"
                     android:layout_gravity="center_horizontal"
                     android:layout_margin="16dp"
                     android:background="?selectableItemBackgroundBorderless"
@@ -227,17 +328,45 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Use alcohol-based senitizer"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginBottom="2dp"
+                        android:text="Use sanitizer"
                         android:textAlignment="center"
-                        android:textColor="#4ee44e"
+                        android:textColor="#000000"
                         android:textSize="12dp" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="right"
+                        android:gravity="right"
+                        android:orientation="horizontal">
+
+                        <Button
+                            android:id="@+id/button3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="4dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/pink_button"
+                            android:drawableRight="@drawable/ic_baseline_arrow_forward_ios_24"
+                            android:drawablePadding="8dp"
+                            android:drawableTint="@color/color_white"
+                            android:padding="6dp"
+                            android:text="View full article"
+                            android:textColor="@color/color_white"
+                            android:textSize="8sp" />
+                    </LinearLayout>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/cvabout"
                 android:layout_width="0dp"
-                android:layout_height="150dp"
+                android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
@@ -248,8 +377,8 @@
 
                 <LinearLayout
                     android:id="@+id/llStayHome"
-                    android:layout_width="wrap_content"
-                    android:layout_height="130dp"
+                    android:layout_width="170dp"
+                    android:layout_height="150dp"
                     android:layout_gravity="center_horizontal"
                     android:layout_margin="16dp"
                     android:background="?selectableItemBackgroundBorderless"
@@ -267,12 +396,38 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
+                        android:layout_marginStart="16dp"
                         android:layout_marginTop="4dp"
-                        android:layout_marginBottom="4dp"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginBottom="2dp"
+                        android:gravity="center"
                         android:text="Stay at home"
                         android:textAlignment="center"
-                        android:textColor="#4ee44e"
+                        android:textColor="#000000"
                         android:textSize="12dp" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="right"
+                        android:gravity="right"
+                        android:orientation="horizontal">
+
+                        <Button
+                            android:id="@+id/button3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="4dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/pink_button"
+                            android:drawableRight="@drawable/ic_baseline_arrow_forward_ios_24"
+                            android:drawablePadding="8dp"
+                            android:drawableTint="@color/color_white"
+                            android:padding="6dp"
+                            android:text="View full article"
+                            android:textColor="@color/color_white"
+                            android:textSize="8sp" />
+                    </LinearLayout>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
