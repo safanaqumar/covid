@@ -45,6 +45,31 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/toolbars" />
 
+            <TextView
+                android:id="@+id/logout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="50dp"
+                android:text="LOGOUT"
+                android:textColor="@color/color_white"
+                android:visibility="invisible"
+                app:layout_constraintBottom_toBottomOf="@+id/toolbars"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/toolbars" />
+
+            <TextView
+                android:id="@+id/welcome_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="100dp"
+                android:text="WELCOME"
+                android:textColor="@color/color_white"
+                android:textSize="18sp"
+                android:visibility="invisible"
+                app:layout_constraintBottom_toBottomOf="@+id/toolbars"
+                app:layout_constraintStart_toStartOf="@+id/toolbars"
+                app:layout_constraintTop_toTopOf="@+id/toolbars" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <com.google.android.material.appbar.AppBarLayout

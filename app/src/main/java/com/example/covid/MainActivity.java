@@ -1,5 +1,6 @@
 package com.example.covid;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.graphics.drawable.DrawerArrowDrawable;
 import androidx.appcompat.widget.AppCompatImageButton;
@@ -30,10 +31,13 @@ import com.google.android.gms.ads.AdView;
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.tabs.TabLayout;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import java.util.Calendar;
 
 public class MainActivity extends AppCompatActivity {
+    public FirebaseAuth firebaseAuth;
     private TabLayout tabLayout;
     private Toolbar toolbar;
     private AppBarLayout appBarLayout;
@@ -53,29 +57,39 @@ public class MainActivity extends AppCompatActivity {
     public Button signup_button;
     ImageView imageView;
     public TextView login;
+    FirebaseUser user;
+    public TextView logout;
+    TextView welcome;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        firebaseAuth = FirebaseAuth.getInstance();
         NavigationView navigationView = findViewById(R.id.nav_view);
         tabLayout = (TabLayout) findViewById(R.id.tablayou);
         appBarLayout = (AppBarLayout) findViewById(R.id.appbar);
         viewPager = (ViewPager) findViewById(R.id.viewpage);
         imageView=findViewById(R.id.menu_logo);
          login=  findViewById(R.id.login_button);
-        login.setOnClickListener(new View.OnClickListener() {
+         welcome=findViewById(R.id.welcome_tv);
+         logout=findViewById(R.id.logout);
+        logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), SignupActivity.class);
-                startActivity(intent);
+               logoutt();
             }
         });
 
-
-
-
+        login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), SignInActivity.class);
+                startActivity(intent);
+            }
+        });
 
         ViewPagerAdaptor adaptor = new ViewPagerAdaptor(getSupportFragmentManager());
 
@@ -125,6 +139,50 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+    @Override
+    public void onStart() {
+        super.onStart();
+        //Check if user is signed in (non-null) and update UI accordingly.
+        // FirebaseUser currentUser = firebaseAuth.getCurrentUser();
+        //Toast.makeText(getApplicationContext(), "user already logged in ", Toast.LENGTH_LONG).show();
+        SessionManagement sessionManagement = new SessionManagement(MainActivity.this);
+        String userID = sessionManagement.getSession();
+        if (userID!="default")
+        {
+            login.setVisibility(View.INVISIBLE);
+            // welcome.setVisibility(View.VISIBLE);
+            logout.setVisibility(View.VISIBLE);
+
+        }
+        else
+        {
+            //do nothing
+        }
+
+
+    }
+
+    public void logoutt()
+    {
+        SessionManagement sessionManagement = new SessionManagement(MainActivity.this);
+        sessionManagement.removeSession();
+        changeUI();
+
+    }
+    public void changeUI()
+    {
+
+        Toast.makeText(getApplicationContext(), "logout", Toast.LENGTH_LONG).show();
+        Intent intent = new Intent(MainActivity.this,MainActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
+        logout.setVisibility(View.INVISIBLE);
+        login.setVisibility(View.VISIBLE);
+    }
+
+
+
+
 
 
     @Override
@@ -134,6 +192,21 @@ public class MainActivity extends AppCompatActivity {
         // if the activty resumes set the toggle state
         boolean enabled = mSharedPref.getBoolean(mPrefKey, true); // if no value found then set it off, in this case this can happen first
         button.setChecked(enabled);
+
+
+
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+
     }
 
     @Override
@@ -143,6 +216,7 @@ public class MainActivity extends AppCompatActivity {
         SharedPreferences.Editor editor = mSharedPref.edit(); // get the pref editor
         editor.putBoolean(mPrefKey, button.isChecked()); // assign value to the key
         editor.commit();  // save the editors modifications
+
     }
 
     private void setuptoolbar() {

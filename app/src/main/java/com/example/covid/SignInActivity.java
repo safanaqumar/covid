@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -23,6 +24,7 @@ public class SignInActivity extends AppCompatActivity {
     EditText inputuserid, inputpassword;
     ProgressBar progressBar;
     Button btnlogin;
+    TextView btnSignup;
     public static String userid1;
     public String username,position;
     DatabaseReference UserDatabaseReference;
@@ -35,21 +37,30 @@ public class SignInActivity extends AppCompatActivity {
 
         UserDatabaseReference = FirebaseDatabase.getInstance().getReference("users");
         firebaseAuth = FirebaseAuth.getInstance();
-        if (firebaseAuth.getCurrentUser() != null){
+      //  if (firebaseAuth.getCurrentUser() != null){
           //  startActivity(new Intent(SignInActivity.this,MainActivity.class));
            // finish();
-            Toast.makeText(getApplicationContext(), "user already logged in ", Toast.LENGTH_LONG).show();
-        }
+         //   Toast.makeText(getApplicationContext(), "user already logged in ", Toast.LENGTH_LONG).show();
+       // }
 
 
         inputuserid = (EditText) findViewById(R.id.loginemail);
+        btnSignup= findViewById(R.id.signupTV);
         inputpassword = (EditText) findViewById(R.id.password);
         btnlogin = (Button) findViewById(R.id.login);
+
         progressBar = (ProgressBar) findViewById(R.id.loading);
         btnlogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 login(v);
+            }
+        });
+        btnSignup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), SignupActivity.class);
+                startActivity(intent);
             }
         });
     }

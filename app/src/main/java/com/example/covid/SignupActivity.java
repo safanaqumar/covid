@@ -23,29 +23,24 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import static com.example.covid.MyApplication.getContext;
+
 public class SignupActivity extends AppCompatActivity {
     public FirebaseAuth firebaseAuth;
     private Button registerbtn;
     private ProgressBar progressBar;
     public Spinner spinner_position;
     public EditText email, password , confirm_password;
+     public  String USEREMAIL;
+    public  String USERID;
     DatabaseReference UserDatabaseReference;
-    @Override
-    public void onStart() {
-        super.onStart();
-        // Check if user is signed in (non-null) and update UI accordingly.
-        FirebaseUser currentUser = firebaseAuth.getCurrentUser();
-        Toast.makeText(getApplicationContext(), "user already logged in ", Toast.LENGTH_LONG).show();
 
-    }
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         firebaseAuth = FirebaseAuth.getInstance();
-
-
         setContentView(R.layout.activity_signup);
         email=(EditText) findViewById(R.id.regEmail);
         password = (EditText) findViewById(R.id.regpass);
@@ -55,6 +50,7 @@ public class SignupActivity extends AppCompatActivity {
         registerbtn = (Button) findViewById(R.id.registerbtn);
 
 
+
         ArrayAdapter<String> spinadapter = new ArrayAdapter<>(SignupActivity.this,android.R.layout.simple_list_item_1,getResources().getStringArray(R.array.positions));
         spinadapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner_position.setAdapter(spinadapter);
@@ -62,7 +58,8 @@ public class SignupActivity extends AppCompatActivity {
         registerbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                final String USEREMAIL = email.getText().toString();
+                  USEREMAIL = email.getText().toString();
+
 
 
                 final String USERPASS = password.getText().toString();
@@ -93,8 +90,11 @@ public class SignupActivity extends AppCompatActivity {
                                 @Override
                                 public void onComplete(@NonNull Task<AuthResult> task) {
                                     if (task.isSuccessful()) {
+                                        USERID= FirebaseAuth.getInstance().getCurrentUser().getUid();
 
-                                        User user = new User(
+                                        final User user = new User(
+
+                                                USERID,
 
                                                 USERPASS,
 
@@ -112,8 +112,15 @@ public class SignupActivity extends AppCompatActivity {
                                             @Override
                                             public void onComplete(@NonNull Task<Void> task) {
                                                 progressBar.setVisibility(View.INVISIBLE);
-                                                Toast.makeText(SignupActivity.this, "registration complete", Toast.LENGTH_SHORT).show();
-                                                startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                                               Toast.makeText(SignupActivity.this, "registration complete", Toast.LENGTH_SHORT).show();
+
+                                               SessionManagement sessionManagement= new SessionManagement(SignupActivity.this);
+                                                sessionManagement.saveSession(user);
+                                                Intent intent=new Intent(getApplicationContext(),MainActivity.class);
+                                                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP  );
+                                                startActivity(intent);
+
+
 
 
                                             }
@@ -132,6 +139,28 @@ public class SignupActivity extends AppCompatActivity {
 
             }
         });
+    }
+     @Override
+     public void onStart() {
+    super.onStart();
+     //Check if user is signed in (non-null) and update UI accordingly.
+   // FirebaseUser currentUser = firebaseAuth.getCurrentUser();
+     //Toast.makeText(getApplicationContext(), "user already logged in ", Toast.LENGTH_LONG).show();
+         SessionManagement sessionManagement = new SessionManagement(SignupActivity.this);
+        String userID = sessionManagement.getSession();
+        if (userID!="default")
+        {
+            Intent intent=new Intent(getApplicationContext(),MainActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP  );
+            startActivity(intent);
+
+        }
+        else
+        {
+            //do noyhing
+        }
+
+
     }
 
 

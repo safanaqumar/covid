@@ -1,16 +1,15 @@
 package com.example.covid;
 
 public class User {
-    public  String password,email,position;
-
-    public User()
-    {
-
-    }
+    public  String id, password,email,position;
 
 
 
-    public User(String password,String email, String position) {
+
+
+    public User(String id , String password, String email, String position) {
+
+        this.id=id;
 
         this.password=password;
 
@@ -18,6 +17,13 @@ public class User {
 
         this.position = position;
 
+    }
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
 
