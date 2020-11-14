@@ -27,6 +27,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
+import com.example.covid.ui.donor.ConfirmApplicationsActivity;
 import com.example.covid.ui.donor.DonationApplicationsActivity;
 import com.example.covid.ui.user.DonationFormActivity;
 import com.example.covid.ui.user.DonorRequestActivity;
@@ -292,5 +293,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onLogoutClicked(View view) {
+    }
+
+    public void onRecipientConfirmationClicked(View view) {
+        Intent i = new Intent(this, ConfirmApplicationsActivity.class);
+        startActivity(i);
     }
 }

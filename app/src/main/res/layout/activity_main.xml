@@ -165,6 +165,17 @@
                     android:text="View Applications"
                     android:textColor="#fff"
                     android:textSize="8sp" />
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnRecipientConfirm"
+                    android:layout_width="100dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/border_dashed"
+                    android:onClick="onRecipientConfirmationClicked"
+                    android:padding="10dp"
+                    android:text="Recipient Confirmation"
+                    android:textColor="#fff"
+                    android:textSize="8sp" />
             </LinearLayout>
 
         </com.google.android.material.appbar.AppBarLayout>
