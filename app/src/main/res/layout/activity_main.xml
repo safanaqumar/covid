@@ -119,12 +119,14 @@
                 android:textSize="12sp" />
 
             <LinearLayout
+                android:id="@+id/donation"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginBottom="10dp"
                 android:gravity="center"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:visibility="invisible">
 
                 <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/btnDonation"
