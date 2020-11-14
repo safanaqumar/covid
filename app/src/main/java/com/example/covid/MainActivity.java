@@ -20,6 +20,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
@@ -60,6 +61,7 @@ public class MainActivity extends AppCompatActivity {
     FirebaseUser user;
     public TextView logout;
     TextView welcome;
+    LinearLayout donation;
 
 
     @Override
@@ -68,6 +70,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         firebaseAuth = FirebaseAuth.getInstance();
+        donation =findViewById(R.id.donation);
         NavigationView navigationView = findViewById(R.id.nav_view);
         tabLayout = (TabLayout) findViewById(R.id.tablayou);
         appBarLayout = (AppBarLayout) findViewById(R.id.appbar);
@@ -151,6 +154,7 @@ public class MainActivity extends AppCompatActivity {
         {
 
             login.setVisibility(View.INVISIBLE);
+            donation.setVisibility(View.VISIBLE);
             // welcome.setVisibility(View.VISIBLE);
            // logout.setVisibility(View.VISIBLE);
 
