@@ -67,6 +67,7 @@ public class MainActivity extends AppCompatActivity {
     LinearLayout donation;
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -83,13 +84,12 @@ public class MainActivity extends AppCompatActivity {
          welcome=findViewById(R.id.welcome_tv);
          //logout=findViewById(R.id.logout);
          logout=findViewById(R.id.logout_btn);
+
          logout.setOnClickListener(new View.OnClickListener() {
              @Override
              public void onClick(View v) {
-
                  SessionManagement sessionManagement = new SessionManagement(MainActivity.this);
                  sessionManagement.removeSession();
-
                  Toast.makeText(getApplicationContext(),"logout", Toast.LENGTH_LONG ).show();
                  String userID = sessionManagement.getSession();
                  if (userID =="default")
@@ -193,6 +193,8 @@ public class MainActivity extends AppCompatActivity {
         }
         else
         {
+
+            sessionManagement.removeSession();
             Toast.makeText(getApplicationContext(),userID, Toast.LENGTH_LONG ).show();
             logout.setVisibility(View.INVISIBLE);
             login.setVisibility(View.VISIBLE);

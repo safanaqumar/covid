@@ -166,24 +166,6 @@ public class SignInActivity extends AppCompatActivity {
     }
 
 
-    @Override
-    public void onStart() {
-        super.onStart();
-        //Check if user is signed in (non-null) and update UI accordingly.
-        // FirebaseUser currentUser = firebaseAuth.getCurrentUser();
-        //Toast.makeText(getApplicationContext(), "user already logged in ", Toast.LENGTH_LONG).show();
-        SessionManagement sessionManagement = new SessionManagement(SignInActivity.this);
-        String userID = sessionManagement.getSession();
-        if (userID != "default") {
-            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
-            startActivity(intent);
 
-        } else {
-            //do noyhing
-        }
-
-
-    }
 }
 
