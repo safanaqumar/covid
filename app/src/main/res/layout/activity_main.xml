@@ -200,7 +200,7 @@
         android:layout_height="match_parent"
         android:layout_gravity="right"
         android:background="@color/colorPrimary"
-        android:visibility="gone">
+        android:visibility="visible">
 
 
         <TextView
@@ -250,14 +250,39 @@
             android:textOff="OFF"
             android:textOn="ON">
 
+
         </ToggleButton>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="20dp"
+            android:layout_height="wrap_content"
             android:layout_gravity="bottom"
+            android:padding="10dp"
             android:background="@color/colorPrimaryDark">
-
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnAbout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="About"
+                android:layout_weight="1"
+                android:onClick="onAboutClicked"
+                android:layout_margin="5dp"
+                android:background="@drawable/my_button_bg"
+                android:textColor="@color/color_white"
+                />
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnLogout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Logout"
+                android:onClick="onLogoutClicked"
+                android:background="@drawable/my_button_bg"
+                android:layout_weight="1"
+                android:layout_margin="5dp"
+                android:textColor="@color/color_white"
+                />
 
         </LinearLayout>
     </com.google.android.material.navigation.NavigationView>
