@@ -8,6 +8,7 @@ public class SessionManagement {
     SharedPreferences.Editor editor;
     String SHARED_PREF_NAME="session";
     String SESSION_KEY="session_user";
+    String ROLE;
     public SessionManagement(Context context)
     {
         sharedPreferences=context.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
@@ -22,6 +23,14 @@ public class SessionManagement {
 
 
     }
+    public void saveRole(String role){
+        editor.putString("role",role).commit();
+    }
+
+    public String getROLE() {
+            return  sharedPreferences.getString("role","0");
+    }
+
     public String getSession()
     {
       return  sharedPreferences.getString(SESSION_KEY,"default") ;
