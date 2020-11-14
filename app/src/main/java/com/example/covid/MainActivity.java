@@ -251,4 +251,9 @@ public class MainActivity extends AppCompatActivity {
         startActivity(i);
     }
 
+    public void onAboutClicked(View view) {
+    }
+
+    public void onLogoutClicked(View view) {
+    }
 }
