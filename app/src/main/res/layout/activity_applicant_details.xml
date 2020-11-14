@@ -13,7 +13,33 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="#fff"
         tools:context=".ui.donor.ApplicantDetailsActivity">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbars"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:title="Recipient Donation Request"
+            app:titleTextColor="@color/color_white"></androidx.appcompat.widget.Toolbar>
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/iv_auto_image_slider"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="#85CBF3CB"
+            app:layout_constraintBottom_toTopOf="@id/CVClick"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/toolbars"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/helpgrow"
+            app:lottie_speed="0.5" />
 
         <androidx.cardview.widget.CardView
             android:id="@+id/CVClick"
@@ -29,7 +55,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toBottomOf="@+id/iv_auto_image_slider">
 
             <LinearLayout
                 android:layout_width="match_parent"
