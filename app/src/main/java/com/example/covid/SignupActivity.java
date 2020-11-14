@@ -150,8 +150,9 @@ public class SignupActivity extends AppCompatActivity {
         String userID = sessionManagement.getSession();
         if (userID!="default")
         {
+            Toast.makeText(getApplicationContext(), " loggedin",Toast.LENGTH_LONG  ).show();
             Intent intent=new Intent(getApplicationContext(),MainActivity.class);
-            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP  );
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(intent);
 
         }

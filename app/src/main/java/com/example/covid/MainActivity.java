@@ -76,12 +76,12 @@ public class MainActivity extends AppCompatActivity {
          login=  findViewById(R.id.login_button);
          welcome=findViewById(R.id.welcome_tv);
          logout=findViewById(R.id.logout);
-        logout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-               logoutt();
-            }
-        });
+       // logout.setOnClickListener(new View.OnClickListener() {
+        //    @Override
+        //    public void onClick(View view) {
+         //      logoutt();
+         //   }
+    //    });
 
         login.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -149,33 +149,36 @@ public class MainActivity extends AppCompatActivity {
         String userID = sessionManagement.getSession();
         if (userID!="default")
         {
+
             login.setVisibility(View.INVISIBLE);
             // welcome.setVisibility(View.VISIBLE);
-            logout.setVisibility(View.VISIBLE);
+           // logout.setVisibility(View.VISIBLE);
 
         }
         else
         {
-            //do nothing
+
         }
 
 
     }
 
-    public void logoutt()
+   /* public void logoutt()
     {
         SessionManagement sessionManagement = new SessionManagement(MainActivity.this);
         sessionManagement.removeSession();
         changeUI();
 
-    }
+    }*/
     public void changeUI()
     {
 
         Toast.makeText(getApplicationContext(), "logout", Toast.LENGTH_LONG).show();
-        Intent intent = new Intent(MainActivity.this,MainActivity.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
-        startActivity(intent);
+       //Intent intent = new Intent(MainActivity.this,MainActivity.class);
+       //.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK| Intent.FLA);
+        //startActivity(intent);
+        Intent intent =new Intent();
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK| Intent.FLAG_ACTIVITY_NEW_TASK);
         logout.setVisibility(View.INVISIBLE);
         login.setVisibility(View.VISIBLE);
     }
