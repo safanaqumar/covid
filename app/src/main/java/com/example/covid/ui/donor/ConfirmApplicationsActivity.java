@@ -6,7 +6,9 @@ import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.os.Bundle;
+import android.view.View;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.example.covid.R;
 import com.example.covid.adapter.ConfirmedApplicationAdapter;
 import com.example.covid.adapter.DonationApplicationAdapter;
@@ -28,11 +30,14 @@ public class ConfirmApplicationsActivity extends AppCompatActivity {
     ConfirmedApplicationAdapter applicationAdapter;
     ActivityConfirmApplicationsBinding mBinding;
     ArrayList<ConfirmedRecipientDetails> list = new ArrayList<>();
+    LottieAnimationView loading;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mBinding = DataBindingUtil.setContentView(this, R.layout.activity_confirm_applications);
+        loading=findViewById(R.id.loading);
+        loading.setVisibility(View.VISIBLE);
         applicationAdapter = new ConfirmedApplicationAdapter(this, list);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
@@ -58,11 +63,12 @@ public class ConfirmApplicationsActivity extends AppCompatActivity {
                             confirmedRecipientDetails.setDonationRequestId(donationReqId);
                             list.add(confirmedRecipientDetails);
                             applicationAdapter.notifyDataSetChanged();
+                            loading.setVisibility(View.GONE);
                         }
 
                         @Override
                         public void onCancelled(@NonNull DatabaseError databaseError) {
-
+                            loading.setVisibility(View.GONE);
                         }
                     });
                 }
@@ -70,6 +76,7 @@ public class ConfirmApplicationsActivity extends AppCompatActivity {
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
+                loading.setVisibility(View.GONE);
             }
         });
     }

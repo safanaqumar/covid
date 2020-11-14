@@ -25,7 +25,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".SignInActivity"></activity>
+        <activity android:name=".AboutActivity"></activity>
+        <activity android:name=".SignInActivity" />
         <activity android:name=".SignupActivity" />
         <activity android:name=".PlayPrecautionActivity" />
         <activity android:name=".ui.donor.ConfirmApplicationsActivity" />
@@ -35,7 +36,6 @@
         <activity android:name=".map.SelectLocationOnMapActivity" />
         <activity android:name=".ui.user.MyApplicationHistoryActivity" />
         <activity android:name=".ui.user.DonationFormActivity" />
-
 
         <uses-library android:name="com.google.android.maps" />
         <!--

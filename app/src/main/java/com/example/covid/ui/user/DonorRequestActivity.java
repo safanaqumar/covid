@@ -6,7 +6,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.view.View;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.example.covid.R;
 import com.example.covid.adapter.ApplicationHistoryAdapter;
 import com.example.covid.adapter.DonorRequestAdapter;
@@ -26,11 +28,14 @@ public class DonorRequestActivity extends AppCompatActivity {
     ArrayList<String> DonationFormUid = new ArrayList<>();
     ArrayList<DonorRequestModel> donorRequest = new ArrayList<>();
     RecyclerView rvAssignment;
+    LottieAnimationView loading;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_donor_request);
+        loading=findViewById(R.id.loading);
+        loading.setVisibility(View.VISIBLE);
         rvAssignment = findViewById(R.id.rvAssignment);
         donorRequestAdapter = new DonorRequestAdapter(this, donorRequest);
         LinearLayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
@@ -76,13 +81,14 @@ public class DonorRequestActivity extends AppCompatActivity {
                             donorRequest.add(donorRequestModel);
                         }
                         donorRequestAdapter.notifyDataSetChanged();
+                        loading.setVisibility(View.GONE);
                     }
 
                 }
 
                 @Override
                 public void onCancelled(DatabaseError databaseError) {
-
+                    loading.setVisibility(View.GONE);
                 }
             });
         }
