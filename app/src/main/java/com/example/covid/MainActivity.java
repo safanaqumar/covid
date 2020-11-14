@@ -6,9 +6,11 @@ import androidx.appcompat.graphics.drawable.DrawerArrowDrawable;
 import androidx.appcompat.widget.AppCompatImageButton;
 import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
 import android.app.AlarmManager;
+import android.app.FragmentManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
@@ -78,13 +80,41 @@ public class MainActivity extends AppCompatActivity {
         imageView=findViewById(R.id.menu_logo);
          login=  findViewById(R.id.login_button);
          welcome=findViewById(R.id.welcome_tv);
-         logout=findViewById(R.id.logout);
-       // logout.setOnClickListener(new View.OnClickListener() {
-        //    @Override
-        //    public void onClick(View view) {
-         //      logoutt();
-         //   }
-    //    });
+         //logout=findViewById(R.id.logout);
+         logout=findViewById(R.id.logout_btn);
+         logout.setOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View v) {
+
+                 SessionManagement sessionManagement = new SessionManagement(MainActivity.this);
+                 sessionManagement.removeSession();
+
+                 Toast.makeText(getApplicationContext(),"logout", Toast.LENGTH_LONG ).show();
+                 String userID = sessionManagement.getSession();
+                 if (userID =="default")
+                 {
+                     Toast.makeText(getApplicationContext(),"logout", Toast.LENGTH_LONG ).show();
+                     Intent intent =new Intent();
+                     intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK| Intent.FLAG_ACTIVITY_NEW_TASK);
+                     logout.setVisibility(View.INVISIBLE);
+                     login.setVisibility(View.VISIBLE);
+
+
+
+                 }
+                 else
+                 {
+
+                 }
+
+
+
+
+
+
+             }
+         });
+
 
         login.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -150,8 +180,9 @@ public class MainActivity extends AppCompatActivity {
         //Toast.makeText(getApplicationContext(), "user already logged in ", Toast.LENGTH_LONG).show();
         SessionManagement sessionManagement = new SessionManagement(MainActivity.this);
         String userID = sessionManagement.getSession();
-        if (userID!="default")
+        if (!userID.equals("default"))
         {
+            Toast.makeText(getApplicationContext(),userID, Toast.LENGTH_LONG ).show();
 
             login.setVisibility(View.INVISIBLE);
             donation.setVisibility(View.VISIBLE);
@@ -161,7 +192,9 @@ public class MainActivity extends AppCompatActivity {
         }
         else
         {
-
+            Toast.makeText(getApplicationContext(),userID, Toast.LENGTH_LONG ).show();
+            logout.setVisibility(View.INVISIBLE);
+            login.setVisibility(View.VISIBLE);
         }
 
 

@@ -257,33 +257,35 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
-            android:padding="10dp"
-            android:background="@color/colorPrimaryDark">
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btnAbout"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="About"
-                android:layout_weight="1"
-                android:onClick="onAboutClicked"
-                android:layout_margin="5dp"
-                android:background="@drawable/my_button_bg"
-                android:textColor="@color/color_white"
-                />
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btnLogout"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="Logout"
-                android:onClick="onLogoutClicked"
-                android:background="@drawable/my_button_bg"
-                android:layout_weight="1"
-                android:layout_margin="5dp"
-                android:textColor="@color/color_white"
-                />
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="10dp">
 
+            <TextView
+                android:id="@+id/logout_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="LOGOUT"
+                android:textColor="@color/color_white"
+                app:layout_constraintBottom_toBottomOf="@+id/toolbars"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/toolbars" />
+
+            <TextView
+                android:id="@+id/app_details"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="APP DETAILS"
+                android:textColor="@color/color_white"
+                app:layout_constraintBottom_toBottomOf="@+id/toolbars"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/toolbars" />
         </LinearLayout>
     </com.google.android.material.navigation.NavigationView>
 
