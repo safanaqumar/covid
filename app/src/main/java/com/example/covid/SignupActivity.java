@@ -34,9 +34,6 @@ public class SignupActivity extends AppCompatActivity {
      public  String USEREMAIL;
     public  String USERID;
     DatabaseReference UserDatabaseReference;
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,9 +48,6 @@ public class SignupActivity extends AppCompatActivity {
         contact=(EditText) findViewById(R.id.regcontact);
         progressBar=findViewById(R.id.loadingbar);
         registerbtn = (Button) findViewById(R.id.registerbtn);
-
-
-
         ArrayAdapter<String> spinadapter = new ArrayAdapter<>(SignupActivity.this,android.R.layout.simple_list_item_1,getResources().getStringArray(R.array.positions));
         spinadapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner_position.setAdapter(spinadapter);

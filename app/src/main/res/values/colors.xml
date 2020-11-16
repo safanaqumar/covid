@@ -12,5 +12,8 @@
     <color name="deaths">#EF5350</color>
     <color name="active">#29B6F6</color>
     <color name="virus">#569111</color>
+    <color name="theme1">#07A194</color>
+    <color name="theme2">#5CAF5F</color>
+
 
 </resources>
