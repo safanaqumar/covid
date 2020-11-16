@@ -65,6 +65,7 @@ public class DonorRequestActivity extends AppCompatActivity {
 
     private void getRequestList() {
         for (int i = 0; i < DonationFormUid.size(); i++) {
+            loading.setVisibility(View.GONE);
             final DatabaseReference nm = FirebaseDatabase.getInstance().getReference("donorrequest")
                     .child(DonationFormUid.get(i));
             final int finalI = i;
@@ -81,7 +82,6 @@ public class DonorRequestActivity extends AppCompatActivity {
                             donorRequest.add(donorRequestModel);
                         }
                         donorRequestAdapter.notifyDataSetChanged();
-                        loading.setVisibility(View.GONE);
                     }
 
                 }

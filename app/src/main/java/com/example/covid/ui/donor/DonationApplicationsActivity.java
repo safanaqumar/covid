@@ -58,10 +58,6 @@ public class DonationApplicationsActivity extends AppCompatActivity {
                                     DonorRequestModel.DonorRequestDataModel donorRequestDataModel = new DonorRequestModel.DonorRequestDataModel();
                                     DonorRequestModel donorRequestModel = new DonorRequestModel(donorRequestDataModel);
                                     donorRequestModel.setDonationRequestId(snapshot.getKey());
-                                    donorRequestModel.getGetData().setConfirm("no");
-                                    donorRequestModel.setDonorId(FirebaseAuth.getInstance().getUid());
-                                    donorRequestModel.getGetData().setMessage("Hey i want to donote you");
-                                    donorRequestModel.getGetData().setName("Aslam");
                                     donorRequestModels.add(donorRequestModel);
                                 }
                                 applicationHistoryAdapter.notifyDataSetChanged();

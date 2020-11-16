@@ -4,9 +4,12 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.text.InputType;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -56,6 +59,31 @@ public class DonationApplicationAdapter extends RecyclerView.Adapter<DonationApp
         holder.mBinding.btnDonate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(c);
+                builder.setTitle("Enter Details");
+                final EditText input = new EditText(c);
+                input.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_CLASS_TEXT);
+                input.setHint("Your name");
+                final EditText input2 = new EditText(c);
+                input2.setHint("message");
+                input2.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_CLASS_TEXT);
+                LinearLayout ll = new LinearLayout(c);
+                LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.MATCH_PARENT);
+                ll.setLayoutParams(lp);
+                ll.setPadding(10,10,10,10);
+                ll.setOrientation(LinearLayout.VERTICAL);
+                ll.addView(input);
+                ll.addView(input2);
+                builder.setView(ll);
+                builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+//                        m_Text = input.getText().toString();
+                        if(input.getText().toString().isEmpty() || input2.getText().toString().isEmpty()){
+                            Toast.makeText(c, "Please enter details", Toast.LENGTH_SHORT).show();
+                            return;
+                        }else {
+
                 AlertDialog.Builder builder1 = new AlertDialog.Builder(c);
                 builder1.setMessage("Are you sure you want to donate for this applicant?");
                 builder1.setCancelable(true);
@@ -64,7 +92,8 @@ public class DonationApplicationAdapter extends RecyclerView.Adapter<DonationApp
                         "Yes",
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
-                                sendDonorRequest(list.get(position), donorRequestModels.get(position));
+                                sendDonorRequest(list.get(position), donorRequestModels.get(position),
+                                        input.getText().toString(),input2.getText().toString());
                             }
                         });
 
@@ -78,12 +107,27 @@ public class DonationApplicationAdapter extends RecyclerView.Adapter<DonationApp
 
                 AlertDialog alert11 = builder1.create();
                 alert11.show();
+                        }
+                    }
+                });
+                builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.cancel();
+                    }
+                });
+
+                builder.show();
             }
         });
 
     }
 
-    private void sendDonorRequest(DonationFormModel donationFormModel, DonorRequestModel donorRequestModel) {
+    private void sendDonorRequest(DonationFormModel donationFormModel, DonorRequestModel donorRequestModel, String name, String message) {
+        donorRequestModel.getGetData().setConfirm("no");
+        donorRequestModel.setDonorId(FirebaseAuth.getInstance().getUid());
+        donorRequestModel.getGetData().setMessage(message);
+        donorRequestModel.getGetData().setName(name);
         FirebaseDatabase.getInstance().getReference("donorrequest")
                 .child(donorRequestModel.getDonationRequestId()).child(donorRequestModel.getDonorId())
                 .setValue(donorRequestModel.getGetData()).addOnCompleteListener(new OnCompleteListener<Void>() {

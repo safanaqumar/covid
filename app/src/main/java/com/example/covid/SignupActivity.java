@@ -134,6 +134,7 @@ public class SignupActivity extends AppCompatActivity {
 
                                                SessionManagement sessionManagement= new SessionManagement(SignupActivity.this);
                                                 sessionManagement.saveSession(user);
+                                                sessionManagement.saveRole(user.position);
                                                 Intent intent=new Intent(getApplicationContext(),MainActivity.class);
                                                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP  );
                                                 startActivity(intent);

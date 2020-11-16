@@ -41,7 +41,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
-                android:text="@{`Name: `+model.position}"
+                android:text="@{`Contact: `+model.contact}"
                 android:textColor="@color/quantum_black_100"
                 android:textSize="14sp" />
 
@@ -50,7 +50,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
-                android:text="@{`Contact: `+model.email}"
+                android:text="@{`Cnic: `+model.cnic}"
                 android:textColor="@color/quantum_black_100"
                 android:textSize="14sp" />
 
@@ -58,7 +58,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
-                android:text="@{`Address: `+model.position}"
+                android:text="@{`Address: `+model.address}"
                 android:textColor="@color/quantum_black_100"
                 android:textSize="14sp" />
 
@@ -67,7 +67,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
-                android:text="@{`Cnic: `+model.password}"
+                android:text="@{`Email: `+model.email}"
                 android:textColor="@color/quantum_black_100"
                 android:textSize="14sp" />
 

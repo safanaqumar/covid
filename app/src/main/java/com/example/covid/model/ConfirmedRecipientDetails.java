@@ -34,10 +34,37 @@ public class ConfirmedRecipientDetails {
     }
 
     public static class ConfirmedRecipientDetailsData {
+        String address;
+        String cnic;
+        String contact;
         String email;
         String id;
         String password;
         String position;
+
+        public String getAddress() {
+            return address;
+        }
+
+        public void setAddress(String address) {
+            this.address = address;
+        }
+
+        public String getCnic() {
+            return cnic;
+        }
+
+        public void setCnic(String cnic) {
+            this.cnic = cnic;
+        }
+
+        public String getContact() {
+            return contact;
+        }
+
+        public void setContact(String contact) {
+            this.contact = contact;
+        }
 
         public String getEmail() {
             return email;
