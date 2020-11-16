@@ -1,13 +1,34 @@
 package com.example.covid;
 
 public class User {
-    public  String id, password,email,position;
+    public  String id, password,email,position , address , contact , cnic;
 
 
+    public String getAddress() {
+        return address;
+    }
 
+    public void setAddress(String address) {
+        this.address = address;
+    }
 
+    public String getContact() {
+        return contact;
+    }
 
-    public User(String id , String password, String email, String position) {
+    public void setContact(String contact) {
+        this.contact = contact;
+    }
+
+    public String getCnic() {
+        return cnic;
+    }
+
+    public void setCnic(String cnic) {
+        this.cnic = cnic;
+    }
+
+    public User(String id , String password, String email, String position, String address , String contact , String cnic) {
 
         this.id=id;
 
@@ -16,6 +37,9 @@ public class User {
         this.email = email;
 
         this.position = position;
+        this.address =address;
+        this.contact=contact;
+        this.cnic=cnic;
 
     }
     public String getId() {

@@ -31,7 +31,7 @@ public class SignInActivity extends AppCompatActivity {
     Button btnlogin;
     TextView btnSignup;
     public static String userid1;
-    public String username, position, id;
+    public String username, position, id , address, contact , cnic;
     DatabaseReference UserDatabaseReference;
     FirebaseAuth firebaseAuth;
     //public String USERID;
@@ -98,7 +98,7 @@ public class SignInActivity extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             progressBar.setVisibility(View.GONE);
 
-                            User user = new User(id, userid1, password, position);
+                            User user = new User(id, userid1, password, position , address, contact, cnic);
 
 
                             //  startActivity(new Intent(getApplicationContext(), MainActivity.class));
@@ -138,6 +138,9 @@ public class SignInActivity extends AppCompatActivity {
                     for (DataSnapshot datas : dataSnapshot.getChildren()) {
                         id = datas.child("id").getValue(String.class);
                         position = datas.child("position").getValue(String.class);
+                        address= datas.child("address").getValue(String.class);
+                        contact =datas.child("contact").getValue(String.class);
+                        cnic=datas.child("cnic").getValue(String.class);
                         // SharedPreferences sharedPreferences= getApplicationContext().getSharedPreferences("MyPref", MODE_PRIVATE);
                         // sharedPreferences.edit().putString("user_name", username).apply();
                         //sharedPreferences.edit().putString("user_position", position).apply();

@@ -30,7 +30,7 @@ public class SignupActivity extends AppCompatActivity {
     private Button registerbtn;
     private ProgressBar progressBar;
     public Spinner spinner_position;
-    public EditText email, password , confirm_password;
+    public EditText email, password , confirm_password , address , cnic , contact;
      public  String USEREMAIL;
     public  String USERID;
     DatabaseReference UserDatabaseReference;
@@ -46,6 +46,9 @@ public class SignupActivity extends AppCompatActivity {
         password = (EditText) findViewById(R.id.regpass);
         confirm_password = (EditText)findViewById(R.id.regconfirmpass);
         spinner_position= (Spinner) findViewById(R.id.regposition);
+        address=(EditText) findViewById(R.id.regaddress);
+        cnic=(EditText) findViewById(R.id.regcnic);
+        contact=(EditText) findViewById(R.id.regcontact);
         progressBar=findViewById(R.id.loadingbar);
         registerbtn = (Button) findViewById(R.id.registerbtn);
 
@@ -59,13 +62,13 @@ public class SignupActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                   USEREMAIL = email.getText().toString();
+                  final String USERPASS = password.getText().toString();
+                  final String USERCONPASS = confirm_password.getText().toString();
 
-
-
-                final String USERPASS = password.getText().toString();
-                final String USERCONPASS = confirm_password.getText().toString();
-
-                final String USERPOSITION = spinner_position.getSelectedItem().toString();
+                  final String USERPOSITION = spinner_position.getSelectedItem().toString();
+                  final String USERADDRESS = address.getText().toString();
+                  final String USERCONTACT =contact.getText().toString();
+                  final String USERCNIC = cnic.getText().toString();
 
                 if (TextUtils.isEmpty(USEREMAIL)) {
                     Toast.makeText(SignupActivity.this, " ENTER EMAIL", Toast.LENGTH_SHORT).show();
@@ -79,8 +82,26 @@ public class SignupActivity extends AppCompatActivity {
                     Toast.makeText(SignupActivity.this, " ENTER CONFIRM PASSWORD", Toast.LENGTH_SHORT).show();
                     return;
                 }
+                if (TextUtils.isEmpty(USERADDRESS)) {
+                    Toast.makeText(SignupActivity.this, " ENTER ADDRESS", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if (TextUtils.isEmpty(USERCONTACT)) {
+                    Toast.makeText(SignupActivity.this, " ENTER CONTACT", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if (TextUtils.isEmpty(USERCNIC)) {
+                    Toast.makeText(SignupActivity.this, " ENTER CNIC", Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 if (USERPASS.length() < 6) {
                     password.setError("Password should be of minimum 6 characters long");
+                }
+                if (USERCONTACT.length() < 11) {
+                    password.setError("Enter valid contact number");
+                }
+                if (USERCNIC.length() < 12) {
+                    password.setError("Enter valid cnic");
                 }
                 if (USERPASS.equals(USERCONPASS)) {
                     progressBar.setVisibility(View.VISIBLE);
@@ -100,7 +121,10 @@ public class SignupActivity extends AppCompatActivity {
 
                                                 USEREMAIL,
 
-                                                USERPOSITION
+                                                USERPOSITION,
+                                                 USERADDRESS,
+                                                USERCONTACT,
+                                                USERCNIC
 
                                         );
 
@@ -140,29 +164,7 @@ public class SignupActivity extends AppCompatActivity {
             }
         });
     }
-     @Override
-     public void onStart() {
-    super.onStart();
-     //Check if user is signed in (non-null) and update UI accordingly.
-   // FirebaseUser currentUser = firebaseAuth.getCurrentUser();
-     //Toast.makeText(getApplicationContext(), "user already logged in ", Toast.LENGTH_LONG).show();
-         SessionManagement sessionManagement = new SessionManagement(SignupActivity.this);
-        String userID = sessionManagement.getSession();
-        if (userID!="default")
-        {
-            Toast.makeText(getApplicationContext(), " loggedin",Toast.LENGTH_LONG  ).show();
-            Intent intent=new Intent(getApplicationContext(),MainActivity.class);
-            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
-            startActivity(intent);
 
-        }
-        else
-        {
-            //do noyhing
-        }
-
-
-    }
 
 
         }
