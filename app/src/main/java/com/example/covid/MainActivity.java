@@ -308,6 +308,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onAboutClicked(View view) {
+        Intent i = new Intent(this, AboutActivity.class);
+        startActivity(i);
     }
 
     public void onLogoutClicked(View view) {

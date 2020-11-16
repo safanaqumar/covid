@@ -236,7 +236,6 @@
             android:layout_height="100dp"
             android:layout_gravity="center"
             android:layout_marginBottom="160dp"
-            android:background="@color/colorPrimaryDark"
             android:src="@drawable/hands"/>
 
         <TextView
@@ -283,7 +282,7 @@
                 android:layout_margin="10dp"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="LOGOUT"
+                android:text="Logout"
                 android:textColor="@color/color_white"
                 app:layout_constraintBottom_toBottomOf="@+id/toolbars"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -296,7 +295,8 @@
                 android:layout_margin="10dp"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="APP DETAILS"
+                android:onClick="onAboutClicked"
+                android:text="App Info"
                 android:textColor="@color/color_white"
                 app:layout_constraintBottom_toBottomOf="@+id/toolbars"
                 app:layout_constraintEnd_toEndOf="parent"

@@ -14,7 +14,38 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:title="About"
+        app:title="App info"
         app:titleTextColor="@color/color_white"></androidx.appcompat.widget.Toolbar>
 
+    <TextView
+        android:id="@+id/tvbottom"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:textColor="#050505"
+        android:textSize="18sp"
+        android:background="#EAE9E9"
+        android:text="CovAid\nVersion 1.0\n\n\nInstructed by:\nSir Sadiq Ali Khan\n\nCreated by: \n Syeda Maria Rasheed\nSafana Qumar\nAiman Mehtab"
+        android:gravity="center"
+        android:padding="12dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv" />
+    <TextView
+        android:id="@+id/tv"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:textColor="#050505"
+        android:textSize="16sp"
+        android:gravity="left"
+        android:background="#EAE9E9"
+        android:text="CovAid Application is to provide you real time global and pakistan updates of corona cases
+and provide you time to time awareness information to keep you up-to-date.\nYou can also donate to people
+ who is affected by pandemic unemployment and also requested to collect donation donors are waiting to help you all over the Pakistan."
+        android:padding="18dp"
+        app:layout_constraintBottom_toTopOf="@id/tvbottom"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbars"
+         />
 </androidx.constraintlayout.widget.ConstraintLayout>
