@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">covid</string>
+    <string name="app_name">CovAid</string>
     <string name="welcome">Welcome to Covid-19 App</string>
     <string name="help">This help is designed to help you in this pandemic situation</string>
     <string name="title_activity_sliding">sliding</string>

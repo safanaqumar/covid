@@ -6,7 +6,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.view.View;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.example.covid.R;
 import com.example.covid.adapter.DonationApplicationAdapter;
 import com.example.covid.model.DonationFormModel;
@@ -25,12 +27,15 @@ public class DonationApplicationsActivity extends AppCompatActivity {
     ArrayList<DonationFormModel> donationList = new ArrayList<>();
     ArrayList<DonorRequestModel> donorRequestModels = new ArrayList<>();
     RecyclerView rvAssignment;
+    LottieAnimationView loading;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_donation_applications);
         rvAssignment = findViewById(R.id.rvAssignment);
+        loading =findViewById(R.id.loading);
+        loading.setVisibility(View.VISIBLE);
         applicationHistoryAdapter = new DonationApplicationAdapter(DonationApplicationsActivity.this, donationList, donorRequestModels);
         LinearLayoutManager layoutManager = new LinearLayoutManager(DonationApplicationsActivity.this);
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
@@ -40,6 +45,7 @@ public class DonationApplicationsActivity extends AppCompatActivity {
         nm.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
+                loading.setVisibility(View.VISIBLE);
                 if (dataSnapshot.exists()) {
                     for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                         DatabaseReference list = FirebaseDatabase.getInstance().getReference().child("donationrequests");
@@ -59,10 +65,12 @@ public class DonationApplicationsActivity extends AppCompatActivity {
                                     donorRequestModels.add(donorRequestModel);
                                 }
                                 applicationHistoryAdapter.notifyDataSetChanged();
+                                loading.setVisibility(View.GONE);
                             }
 
                             @Override
                             public void onCancelled(@NonNull DatabaseError databaseError) {
+                                loading.setVisibility(View.GONE);
                             }
                         });
                     }
@@ -72,7 +80,7 @@ public class DonationApplicationsActivity extends AppCompatActivity {
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
-
+                loading.setVisibility(View.GONE);
             }
         });
     }

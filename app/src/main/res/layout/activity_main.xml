@@ -130,10 +130,11 @@
 
                 <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/btnDonation"
-                    android:layout_width="100dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="30dp"
                     android:layout_gravity="center"
                     android:layout_marginEnd="4dp"
+                    android:layout_margin="5dp"
                     android:background="@drawable/border_dashed"
                     android:onClick="onClicked"
                     android:padding="10dp"
@@ -143,21 +144,23 @@
 
                 <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/btnDonator"
-                    android:layout_width="100dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="30dp"
                     android:layout_gravity="center"
                     android:layout_marginEnd="4dp"
                     android:background="@drawable/border_dashed"
                     android:onClick="onSeeDonor"
                     android:padding="10dp"
+                    android:layout_margin="5dp"
                     android:text="See your Donor"
                     android:textColor="#fff"
                     android:textSize="8sp" />
 
                 <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/btnApplications"
-                    android:layout_width="100dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="30dp"
+                    android:layout_margin="5dp"
                     android:layout_gravity="center"
                     android:background="@drawable/border_dashed"
                     android:onClick="onViewClicked"
@@ -167,12 +170,13 @@
                     android:textSize="8sp" />
                 <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/btnRecipientConfirm"
-                    android:layout_width="100dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="30dp"
                     android:layout_gravity="center"
                     android:background="@drawable/border_dashed"
                     android:onClick="onRecipientConfirmationClicked"
                     android:padding="10dp"
+                    android:layout_margin="5dp"
                     android:text="Recipient Confirmation"
                     android:textColor="#fff"
                     android:textSize="8sp" />

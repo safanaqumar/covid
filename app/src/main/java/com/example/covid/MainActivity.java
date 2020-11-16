@@ -3,6 +3,7 @@ package com.example.covid;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.graphics.drawable.DrawerArrowDrawable;
+import androidx.appcompat.widget.AppCompatButton;
 import androidx.appcompat.widget.AppCompatImageButton;
 import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -65,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
     public TextView logout;
     TextView welcome;
     LinearLayout donation;
-
+    AppCompatButton btnIWantDonation,btnSeeDonor,btnViewApplications,btnRecipient;
 
 
     @Override
@@ -75,6 +76,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         firebaseAuth = FirebaseAuth.getInstance();
         donation =findViewById(R.id.donation);
+        btnIWantDonation=findViewById(R.id.btnDonation);
+        btnSeeDonor=findViewById(R.id.btnDonator);
+        btnViewApplications=findViewById(R.id.btnApplications);
+        btnRecipient=findViewById(R.id.btnRecipientConfirm);
         NavigationView navigationView = findViewById(R.id.nav_view);
         tabLayout = (TabLayout) findViewById(R.id.tablayou);
         appBarLayout = (AppBarLayout) findViewById(R.id.appbar);
@@ -184,10 +189,20 @@ public class MainActivity extends AppCompatActivity {
         String userID = sessionManagement.getSession();
         if (!userID.equals("default"))
         {
-            Toast.makeText(getApplicationContext(),userID, Toast.LENGTH_LONG ).show();
 
             login.setVisibility(View.INVISIBLE);
             donation.setVisibility(View.VISIBLE);
+            if(sessionManagement.getROLE().equals("Donor")){
+                btnIWantDonation.setVisibility(View.GONE);
+                btnSeeDonor.setVisibility(View.GONE);
+                btnRecipient.setVisibility(View.VISIBLE);
+                btnViewApplications.setVisibility(View.VISIBLE);
+            }else if(sessionManagement.getROLE().equals("Recipient")){
+                btnIWantDonation.setVisibility(View.VISIBLE);
+                btnSeeDonor.setVisibility(View.VISIBLE);
+                btnRecipient.setVisibility(View.GONE);
+                btnViewApplications.setVisibility(View.GONE);
+            }
             // welcome.setVisibility(View.VISIBLE);
            // logout.setVisibility(View.VISIBLE);
 
@@ -218,7 +233,7 @@ public class MainActivity extends AppCompatActivity {
        //Intent intent = new Intent(MainActivity.this,MainActivity.class);
        //.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK| Intent.FLA);
         //startActivity(intent);
-        Intent intent =new Intent();
+        Intent intent =new Intent(this,MainActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK| Intent.FLAG_ACTIVITY_NEW_TASK);
         logout.setVisibility(View.INVISIBLE);
         login.setVisibility(View.VISIBLE);

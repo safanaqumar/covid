@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -39,6 +40,7 @@ public class SignInActivity extends AppCompatActivity {
     public FirebaseUser mFirebaseUser;
     public String positionShow;
     public String UID;
+    SharedPreferences preferences;
 
 
     @Override
@@ -48,6 +50,8 @@ public class SignInActivity extends AppCompatActivity {
         firebaseAuth = FirebaseAuth.getInstance();
         UserDatabaseReference = FirebaseDatabase.getInstance().getReference("users");
         mFirebaseUser = firebaseAuth.getCurrentUser();
+         SharedPreferences sharedPreferences= getApplicationContext().getSharedPreferences("MyPref", MODE_PRIVATE);
+
         //  if (firebaseAuth.getCurrentUser() != null){
         //  startActivity(new Intent(SignInActivity.this,MainActivity.class));
         // finish();
@@ -108,6 +112,7 @@ public class SignInActivity extends AppCompatActivity {
 
                             SessionManagement sessionManagement = new SessionManagement(SignInActivity.this);
                             sessionManagement.saveSession(user);
+                            sessionManagement.saveRole(position);
                             Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                             intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
                             startActivity(intent);
